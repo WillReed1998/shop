@@ -1,9 +1,9 @@
-FROM maven:3.9.5 AS build
+FROM maven:latest AS build
 WORKDIR /app
 COPY . /app/
 RUN mvn clean package
 
-FROM eclipse-temurin:21
+FROM openjdk:17
 WORKDIR /app
 COPY --from=build /app/target/*.jar /app/app.jar
 EXPOSE 8080
