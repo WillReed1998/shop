@@ -1,5 +1,10 @@
-FROM maven:3.8.4-openjdk-17
-EXPOSE 8080
-ADD target/shop-0.0.1-SNAPSHOT.jar app.jar
+FROM maven:3.9.5 AS build
+WORKDIR /app
+COPY . /app/
+RUN mvn clean package
 
+FROM eclipse-temurin:21
+WORKDIR /app
+COPY --from=build /app/target/*.jar /app/app.jar
+EXPOSE 8080
 ENTRYPOINT ["java", "-jar", "app.jar"]
