@@ -14,10 +14,7 @@ public class ShopApplication {
 		return "Hello World";
 	}
 
-	@GetMapping("/love")
-	public String love() {
-		return "I lovee Java ;)";
-	}
+
 
 
 	public static void main(String[] args) {
