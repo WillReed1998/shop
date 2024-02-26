@@ -14,6 +14,12 @@ public class ShopApplication {
 		return "Hello World";
 	}
 
+	@GetMapping("/love")
+	public String love() {
+		return "I love Java ;)";
+	}
+
+
 	public static void main(String[] args) {
 		SpringApplication.run(ShopApplication.class, args);
 	}
