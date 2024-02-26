@@ -16,7 +16,7 @@ public class ShopApplication {
 
 	@GetMapping("/love")
 	public String love() {
-		return "I love Java ;)";
+		return "I lovee Java ;)";
 	}
 
 
