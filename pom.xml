@@ -33,7 +33,6 @@
 			<artifactId>spring-dotenv</artifactId>
 			<version>${dotenv.version}</version>
 		</dependency>
-
 	</dependencies>
 
 	<build>
