@@ -5,12 +5,10 @@ on:
     branches:
       - dev
       - master
-      - OSS-50-Create-CI-CD-file-for-Githib-Actions
   pull_request:
     branches:
       - dev
       - master
-      - OSS-50-Create-CI-CD-file-for-Githib-Actions
 
 jobs:
   build:
