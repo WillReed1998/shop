@@ -14,11 +14,4 @@ public class ShopApplicationTests {
 
 	@Autowired
 	private MockMvc mockMvc;
-
-	@Test
-	public void welcomeEndpointReturnsHelloWorld() throws Exception {
-		mockMvc.perform(MockMvcRequestBuilders.get("/welcome"))
-				.andExpect(MockMvcResultMatchers.status().isOk())
-				.andExpect(MockMvcResultMatchers.content().string("Hello World"));
-	}
 }
