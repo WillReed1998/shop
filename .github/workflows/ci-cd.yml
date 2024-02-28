@@ -1,4 +1,4 @@
-name: Java CI
+name: Test and Build
 
 on:
   push:
@@ -24,7 +24,12 @@ jobs:
         uses: actions/setup-java@v4
         with:
           java-version: '21'
-          distribution: 'adopt'
+          distribution: 'oracle'
 
-      - name: Build and test with Maven
-        run: mvn clean test
+      - name: Unit Tests
+        run: mvn -B test --file pom.xml
+
+      - name: Build the application
+        run: |
+          mvn clean
+          mvn -B package -DskipTests --file pom.xml
