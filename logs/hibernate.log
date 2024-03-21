@@ -950,8 +950,8 @@ Caused by: org.postgresql.util.PSQLException: ERROR: relation "categories" does 
 2024-03-21 18:21:43,617 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.1.Final
 2024-03-21 18:21:43,704 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
 2024-03-21 18:21:44,351 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
-2024-03-21 18:21:44,798 [main] ERROR o.s.o.j.LocalContainerEntityManagerFactoryBean - Failed to initialize JPA EntityManagerFactory: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.MappingException: Column 'id' is duplicated in mapping for entity 'com.stamp.shop.product.entity.ProductDetails' (use '@Column(insertable=false, updatable=false)' when mapping multiple properties to the same column)
-2024-03-21 18:21:44,799 [main] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.MappingException: Column 'id' is duplicated in mapping for entity 'com.stamp.shop.product.entity.ProductDetails' (use '@Column(insertable=false, updatable=false)' when mapping multiple properties to the same column)
+2024-03-21 18:21:44,798 [main] ERROR o.s.o.j.LocalContainerEntityManagerFactoryBean - Failed to initialize JPA EntityManagerFactory: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.MappingException: Column 'id' is duplicated in mapping for entity 'com.stamp.shop.product.ProductDetails' (use '@Column(insertable=false, updatable=false)' when mapping multiple properties to the same column)
+2024-03-21 18:21:44,799 [main] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.MappingException: Column 'id' is duplicated in mapping for entity 'com.stamp.shop.product.ProductDetails' (use '@Column(insertable=false, updatable=false)' when mapping multiple properties to the same column)
 2024-03-21 18:21:44,800 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
 2024-03-21 18:21:44,808 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
 2024-03-21 18:21:44,810 [main] INFO  o.a.catalina.core.StandardService - Stopping service [Tomcat]
@@ -959,7 +959,7 @@ Caused by: org.postgresql.util.PSQLException: ERROR: relation "categories" does 
 
 Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
 2024-03-21 18:21:44,929 [main] ERROR o.s.boot.SpringApplication - Application run failed
-org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.MappingException: Column 'id' is duplicated in mapping for entity 'com.stamp.shop.product.entity.ProductDetails' (use '@Column(insertable=false, updatable=false)' when mapping multiple properties to the same column)
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.MappingException: Column 'id' is duplicated in mapping for entity 'com.stamp.shop.product.ProductDetails' (use '@Column(insertable=false, updatable=false)' when mapping multiple properties to the same column)
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1773)
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:599)
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:521)
@@ -977,14 +977,14 @@ org.springframework.beans.factory.BeanCreationException: Error creating bean wit
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354)
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343)
 	at com.stamp.shop.ShopApplication.main(ShopApplication.java:11)
-Caused by: jakarta.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.MappingException: Column 'id' is duplicated in mapping for entity 'com.stamp.shop.product.entity.ProductDetails' (use '@Column(insertable=false, updatable=false)' when mapping multiple properties to the same column)
+Caused by: jakarta.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.MappingException: Column 'id' is duplicated in mapping for entity 'com.stamp.shop.product.ProductDetails' (use '@Column(insertable=false, updatable=false)' when mapping multiple properties to the same column)
 	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:421)
 	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
 	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:352)
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1820)
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1769)
 	... 16 common frames omitted
-Caused by: org.hibernate.MappingException: Column 'id' is duplicated in mapping for entity 'com.stamp.shop.product.entity.ProductDetails' (use '@Column(insertable=false, updatable=false)' when mapping multiple properties to the same column)
+Caused by: org.hibernate.MappingException: Column 'id' is duplicated in mapping for entity 'com.stamp.shop.product.ProductDetails' (use '@Column(insertable=false, updatable=false)' when mapping multiple properties to the same column)
 	at org.hibernate.mapping.Value.checkColumnDuplication(Value.java:197)
 	at org.hibernate.mapping.MappingHelper.checkPropertyColumnDuplication(MappingHelper.java:249)
 	at org.hibernate.mapping.PersistentClass.checkColumnDuplication(PersistentClass.java:935)
@@ -1033,8 +1033,13 @@ Caused by: org.hibernate.MappingException: Column 'id' is duplicated in mapping 
 2024-03-21 18:27:35,629 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.1.Final
 2024-03-21 18:27:35,675 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
 2024-03-21 18:27:36,133 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+<<<<<<< HEAD
 2024-03-21 18:27:36,467 [main] ERROR o.s.o.j.LocalContainerEntityManagerFactoryBean - Failed to initialize JPA EntityManagerFactory: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.MappingException: Column 'id' is duplicated in mapping for entity 'com.stamp.shop.product.entity.ProductDetails' (use '@Column(insertable=false, updatable=false)' when mapping multiple properties to the same column)
 2024-03-21 18:27:36,468 [main] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.MappingException: Column 'id' is duplicated in mapping for entity 'com.stamp.shop.product.entity.ProductDetails' (use '@Column(insertable=false, updatable=false)' when mapping multiple properties to the same column)
+=======
+2024-03-21 18:27:36,467 [main] ERROR o.s.o.j.LocalContainerEntityManagerFactoryBean - Failed to initialize JPA EntityManagerFactory: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.MappingException: Column 'id' is duplicated in mapping for entity 'com.stamp.shop.product.ProductDetails' (use '@Column(insertable=false, updatable=false)' when mapping multiple properties to the same column)
+2024-03-21 18:27:36,468 [main] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.MappingException: Column 'id' is duplicated in mapping for entity 'com.stamp.shop.product.ProductDetails' (use '@Column(insertable=false, updatable=false)' when mapping multiple properties to the same column)
+>>>>>>> parent of ccd7eab (Delete logs/hibernate.log)
 2024-03-21 18:27:36,468 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
 2024-03-21 18:27:36,475 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
 2024-03-21 18:27:36,478 [main] INFO  o.a.catalina.core.StandardService - Stopping service [Tomcat]
@@ -1042,7 +1047,11 @@ Caused by: org.hibernate.MappingException: Column 'id' is duplicated in mapping 
 
 Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
 2024-03-21 18:27:36,514 [main] ERROR o.s.boot.SpringApplication - Application run failed
+<<<<<<< HEAD
 org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.MappingException: Column 'id' is duplicated in mapping for entity 'com.stamp.shop.product.entity.ProductDetails' (use '@Column(insertable=false, updatable=false)' when mapping multiple properties to the same column)
+=======
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.MappingException: Column 'id' is duplicated in mapping for entity 'com.stamp.shop.product.ProductDetails' (use '@Column(insertable=false, updatable=false)' when mapping multiple properties to the same column)
+>>>>>>> parent of ccd7eab (Delete logs/hibernate.log)
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1773)
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:599)
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:521)
@@ -1060,14 +1069,22 @@ org.springframework.beans.factory.BeanCreationException: Error creating bean wit
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354)
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343)
 	at com.stamp.shop.ShopApplication.main(ShopApplication.java:11)
+<<<<<<< HEAD
 Caused by: jakarta.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.MappingException: Column 'id' is duplicated in mapping for entity 'com.stamp.shop.product.entity.ProductDetails' (use '@Column(insertable=false, updatable=false)' when mapping multiple properties to the same column)
+=======
+Caused by: jakarta.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.MappingException: Column 'id' is duplicated in mapping for entity 'com.stamp.shop.product.ProductDetails' (use '@Column(insertable=false, updatable=false)' when mapping multiple properties to the same column)
+>>>>>>> parent of ccd7eab (Delete logs/hibernate.log)
 	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:421)
 	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
 	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:352)
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1820)
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1769)
 	... 16 common frames omitted
+<<<<<<< HEAD
 Caused by: org.hibernate.MappingException: Column 'id' is duplicated in mapping for entity 'com.stamp.shop.product.entity.ProductDetails' (use '@Column(insertable=false, updatable=false)' when mapping multiple properties to the same column)
+=======
+Caused by: org.hibernate.MappingException: Column 'id' is duplicated in mapping for entity 'com.stamp.shop.product.ProductDetails' (use '@Column(insertable=false, updatable=false)' when mapping multiple properties to the same column)
+>>>>>>> parent of ccd7eab (Delete logs/hibernate.log)
 	at org.hibernate.mapping.Value.checkColumnDuplication(Value.java:197)
 	at org.hibernate.mapping.MappingHelper.checkPropertyColumnDuplication(MappingHelper.java:249)
 	at org.hibernate.mapping.PersistentClass.checkColumnDuplication(PersistentClass.java:935)
@@ -1220,6 +1237,7 @@ Identify and stop the process that's listening on port 8080 or configure this ap
 2024-03-21 18:47:41,714 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
 2024-03-21 18:47:41,715 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
 2024-03-21 18:47:41,727 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+<<<<<<< HEAD
 2024-03-22 16:34:38,657 [main] INFO  com.stamp.shop.ShopApplication - Starting ShopApplication using Java 21.0.2 with PID 15559 (/home/bohdan/Documents/0_Java/shop/target/classes started by bohdan in /home/bohdan/Documents/0_Java/shop)
 2024-03-22 16:34:38,661 [main] INFO  com.stamp.shop.ShopApplication - No active profile set, falling back to 1 default profile: "default"
 2024-03-22 16:34:39,400 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
@@ -1955,3 +1973,5 @@ Caused by: org.postgresql.util.PSQLException: ERROR: relation "categories" does 
 2024-03-22 17:06:35,285 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
 2024-03-22 17:06:35,288 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
 2024-03-22 17:06:35,297 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+=======
+>>>>>>> parent of ccd7eab (Delete logs/hibernate.log)
