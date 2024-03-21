@@ -1183,3 +1183,40 @@ Identify and stop the process that's listening on port 8080 or configure this ap
 2024-03-21 18:32:56,598 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
 2024-03-21 18:32:56,601 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
 2024-03-21 18:32:56,622 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2024-03-21 18:47:34,562 [main] INFO  com.stamp.shop.ShopApplication - Starting ShopApplication using Java 21.0.2 with PID 7823 (/home/bohdan/Documents/0_Java/shop/target/classes started by bohdan in /home/bohdan/Documents/0_Java/shop)
+2024-03-21 18:47:34,567 [main] INFO  com.stamp.shop.ShopApplication - No active profile set, falling back to 1 default profile: "default"
+2024-03-21 18:47:35,329 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-03-21 18:47:35,355 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 14 ms. Found 0 JPA repository interfaces.
+2024-03-21 18:47:36,034 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8081 (http)
+2024-03-21 18:47:36,044 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+2024-03-21 18:47:36,046 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-03-21 18:47:36,047 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.18]
+2024-03-21 18:47:36,113 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-03-21 18:47:36,113 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1482 ms
+2024-03-21 18:47:36,294 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-03-21 18:47:36,778 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@7ca492d9
+2024-03-21 18:47:36,780 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-03-21 18:47:36,939 [main] INFO  liquibase.database - Set default schema name to public
+2024-03-21 18:47:37,208 [main] INFO  liquibase.changelog - Reading from public.databasechangelog
+2024-03-21 18:47:37,237 [main] INFO  liquibase.changelog - Reading from public.databasechangelog
+2024-03-21 18:47:37,271 [main] INFO  liquibase.util - UPDATE SUMMARY
+2024-03-21 18:47:37,271 [main] INFO  liquibase.util - Run:                          0
+2024-03-21 18:47:37,271 [main] INFO  liquibase.util - Previously run:               1
+2024-03-21 18:47:37,271 [main] INFO  liquibase.util - Filtered out:                 0
+2024-03-21 18:47:37,272 [main] INFO  liquibase.util - -------------------------------
+2024-03-21 18:47:37,272 [main] INFO  liquibase.util - Total change sets:            1
+2024-03-21 18:47:37,272 [main] INFO  liquibase.util - Update summary generated
+2024-03-21 18:47:37,297 [main] INFO  liquibase.lockservice - Successfully released change log lock
+2024-03-21 18:47:37,299 [main] INFO  liquibase.command - Command execution complete
+2024-03-21 18:47:37,423 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-03-21 18:47:37,513 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.1.Final
+2024-03-21 18:47:37,562 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-03-21 18:47:38,027 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-03-21 18:47:39,170 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-03-21 18:47:39,173 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-03-21 18:47:39,684 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
+2024-03-21 18:47:39,699 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8081 (http) with context path ''
+2024-03-21 18:47:39,709 [main] INFO  com.stamp.shop.ShopApplication - Started ShopApplication in 5.597 seconds (process running for 6.749)
+2024-03-21 18:47:41,714 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-03-21 18:47:41,715 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-03-21 18:47:41,727 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
