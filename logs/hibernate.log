@@ -1,0 +1,1957 @@
+2024-03-21 18:13:26,880 [main] INFO  com.stamp.shop.ShopApplication - Starting ShopApplication using Java 21.0.2 with PID 15919 (/home/bohdan/Documents/0_Java/shop/target/classes started by bohdan in /home/bohdan/Documents/0_Java/shop)
+2024-03-21 18:13:26,885 [main] INFO  com.stamp.shop.ShopApplication - No active profile set, falling back to 1 default profile: "default"
+2024-03-21 18:13:27,688 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-03-21 18:13:27,719 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 19 ms. Found 0 JPA repository interfaces.
+2024-03-21 18:13:28,449 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-03-21 18:13:28,462 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-03-21 18:13:28,464 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-03-21 18:13:28,464 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.18]
+2024-03-21 18:13:28,525 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-03-21 18:13:28,525 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1565 ms
+2024-03-21 18:13:28,721 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-03-21 18:13:29,326 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@7f2c57fe
+2024-03-21 18:13:29,328 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-03-21 18:13:29,568 [main] INFO  liquibase.database - Set default schema name to public
+2024-03-21 18:13:29,886 [main] INFO  liquibase.changelog - Reading from public.databasechangelog
+2024-03-21 18:13:29,954 [main] INFO  liquibase.lockservice - Successfully acquired change log lock
+2024-03-21 18:13:29,956 [main] INFO  liquibase.command - Using deploymentId: 1041209956
+2024-03-21 18:13:29,959 [main] INFO  liquibase.changelog - Reading from public.databasechangelog
+2024-03-21 18:13:30,025 [main] ERROR liquibase.changelog - ChangeSet db/changelog/v1/changeset-v1.0.sql::raw::includeAll encountered an exception.
+2024-03-21 18:13:30,028 [main] INFO  liquibase.command - Update command encountered an exception.
+2024-03-21 18:13:30,034 [main] INFO  liquibase.lockservice - Successfully released change log lock
+2024-03-21 18:13:30,035 [main] INFO  liquibase.command - Command execution complete
+2024-03-21 18:13:30,037 [main] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: liquibase.exception.LiquibaseException: liquibase.exception.MigrationFailedException: Migration failed for changeset db/changelog/v1/changeset-v1.0.sql::raw::includeAll:
+     Reason: liquibase.exception.DatabaseException: ERROR: both default and identity specified for column "id" of table "product_details" [Failed SQL: (0) CREATE TABLE IF NOT EXISTS product_details (
+    id BIGSERIAL GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    year_of_issue INTEGER NOT NULL,
+    country_of_issue TEXT NOT NULL,
+    series TEXT NOT NULL,
+    category_id INTEGER NOT NULL,
+
+    CONSTRAINT category_id_fk FOREIGN KEY (category_id) REFERENCES categories (id)
+);
+
+CREATE TABLE IF NOT EXISTS products (
+    id BIGSERIAL GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    scu TEXT NOT NULL UNIQUE,
+    name TEXT NOT NULL,
+    number_of_reviews INTEGER NOT NULL,
+    price DECIMAL NOT NULL,
+    discount DECIMAL,
+    rating INTEGER NOT NULL,
+    quantity_in_stock BIGINT NOT NULL,
+    short_description TEXT NOT NULL,
+    images JSON NOT NULL,
+    name_of_subblock TEXT NOT NULL,
+    long_description TEXT NOT NULL,
+
+    CONSTRAINT id_fk FOREIGN KEY (id) REFERENCES product_details (id)
+);
+
+CREATE TABLE IF NOT EXISTS categories (
+    id BIGSERIAL GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    name TEXT NOT NULL,
+    img TEXT
+)]
+2024-03-21 18:13:30,037 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-03-21 18:13:30,046 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2024-03-21 18:13:30,049 [main] INFO  o.a.catalina.core.StandardService - Stopping service [Tomcat]
+2024-03-21 18:13:30,062 [main] INFO  o.s.b.a.l.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2024-03-21 18:13:30,089 [main] ERROR o.s.boot.SpringApplication - Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: liquibase.exception.LiquibaseException: liquibase.exception.MigrationFailedException: Migration failed for changeset db/changelog/v1/changeset-v1.0.sql::raw::includeAll:
+     Reason: liquibase.exception.DatabaseException: ERROR: both default and identity specified for column "id" of table "product_details" [Failed SQL: (0) CREATE TABLE IF NOT EXISTS product_details (
+    id BIGSERIAL GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    year_of_issue INTEGER NOT NULL,
+    country_of_issue TEXT NOT NULL,
+    series TEXT NOT NULL,
+    category_id INTEGER NOT NULL,
+
+    CONSTRAINT category_id_fk FOREIGN KEY (category_id) REFERENCES categories (id)
+);
+
+CREATE TABLE IF NOT EXISTS products (
+    id BIGSERIAL GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    scu TEXT NOT NULL UNIQUE,
+    name TEXT NOT NULL,
+    number_of_reviews INTEGER NOT NULL,
+    price DECIMAL NOT NULL,
+    discount DECIMAL,
+    rating INTEGER NOT NULL,
+    quantity_in_stock BIGINT NOT NULL,
+    short_description TEXT NOT NULL,
+    images JSON NOT NULL,
+    name_of_subblock TEXT NOT NULL,
+    long_description TEXT NOT NULL,
+
+    CONSTRAINT id_fk FOREIGN KEY (id) REFERENCES product_details (id)
+);
+
+CREATE TABLE IF NOT EXISTS categories (
+    id BIGSERIAL GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    name TEXT NOT NULL,
+    img TEXT
+)]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1773)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:599)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:521)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:325)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:323)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:312)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1231)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:949)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:624)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:334)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343)
+	at com.stamp.shop.ShopApplication.main(ShopApplication.java:11)
+Caused by: liquibase.exception.CommandExecutionException: liquibase.exception.LiquibaseException: liquibase.exception.MigrationFailedException: Migration failed for changeset db/changelog/v1/changeset-v1.0.sql::raw::includeAll:
+     Reason: liquibase.exception.DatabaseException: ERROR: both default and identity specified for column "id" of table "product_details" [Failed SQL: (0) CREATE TABLE IF NOT EXISTS product_details (
+    id BIGSERIAL GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    year_of_issue INTEGER NOT NULL,
+    country_of_issue TEXT NOT NULL,
+    series TEXT NOT NULL,
+    category_id INTEGER NOT NULL,
+
+    CONSTRAINT category_id_fk FOREIGN KEY (category_id) REFERENCES categories (id)
+);
+
+CREATE TABLE IF NOT EXISTS products (
+    id BIGSERIAL GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    scu TEXT NOT NULL UNIQUE,
+    name TEXT NOT NULL,
+    number_of_reviews INTEGER NOT NULL,
+    price DECIMAL NOT NULL,
+    discount DECIMAL,
+    rating INTEGER NOT NULL,
+    quantity_in_stock BIGINT NOT NULL,
+    short_description TEXT NOT NULL,
+    images JSON NOT NULL,
+    name_of_subblock TEXT NOT NULL,
+    long_description TEXT NOT NULL,
+
+    CONSTRAINT id_fk FOREIGN KEY (id) REFERENCES product_details (id)
+);
+
+CREATE TABLE IF NOT EXISTS categories (
+    id BIGSERIAL GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    name TEXT NOT NULL,
+    img TEXT
+)]
+	at liquibase.command.CommandScope.execute(CommandScope.java:237)
+	at liquibase.Liquibase.lambda$update$0(Liquibase.java:222)
+	at liquibase.Scope.lambda$child$0(Scope.java:184)
+	at liquibase.Scope.child(Scope.java:193)
+	at liquibase.Scope.child(Scope.java:183)
+	at liquibase.Scope.child(Scope.java:162)
+	at liquibase.Liquibase.runInScope(Liquibase.java:1371)
+	at liquibase.Liquibase.update(Liquibase.java:211)
+	at liquibase.Liquibase.update(Liquibase.java:193)
+	at liquibase.integration.spring.SpringLiquibase.performUpdate(SpringLiquibase.java:331)
+	at liquibase.integration.spring.SpringLiquibase.afterPropertiesSet(SpringLiquibase.java:286)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1820)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1769)
+	... 18 common frames omitted
+Caused by: liquibase.exception.LiquibaseException: liquibase.exception.MigrationFailedException: Migration failed for changeset db/changelog/v1/changeset-v1.0.sql::raw::includeAll:
+     Reason: liquibase.exception.DatabaseException: ERROR: both default and identity specified for column "id" of table "product_details" [Failed SQL: (0) CREATE TABLE IF NOT EXISTS product_details (
+    id BIGSERIAL GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    year_of_issue INTEGER NOT NULL,
+    country_of_issue TEXT NOT NULL,
+    series TEXT NOT NULL,
+    category_id INTEGER NOT NULL,
+
+    CONSTRAINT category_id_fk FOREIGN KEY (category_id) REFERENCES categories (id)
+);
+
+CREATE TABLE IF NOT EXISTS products (
+    id BIGSERIAL GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    scu TEXT NOT NULL UNIQUE,
+    name TEXT NOT NULL,
+    number_of_reviews INTEGER NOT NULL,
+    price DECIMAL NOT NULL,
+    discount DECIMAL,
+    rating INTEGER NOT NULL,
+    quantity_in_stock BIGINT NOT NULL,
+    short_description TEXT NOT NULL,
+    images JSON NOT NULL,
+    name_of_subblock TEXT NOT NULL,
+    long_description TEXT NOT NULL,
+
+    CONSTRAINT id_fk FOREIGN KEY (id) REFERENCES product_details (id)
+);
+
+CREATE TABLE IF NOT EXISTS categories (
+    id BIGSERIAL GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    name TEXT NOT NULL,
+    img TEXT
+)]
+	at liquibase.changelog.ChangeLogIterator.run(ChangeLogIterator.java:122)
+	at liquibase.command.core.AbstractUpdateCommandStep.lambda$doRun$1(AbstractUpdateCommandStep.java:105)
+	at liquibase.Scope.lambda$child$0(Scope.java:184)
+	at liquibase.Scope.child(Scope.java:193)
+	at liquibase.Scope.child(Scope.java:183)
+	at liquibase.Scope.child(Scope.java:162)
+	at liquibase.command.core.AbstractUpdateCommandStep.doRun(AbstractUpdateCommandStep.java:104)
+	at liquibase.command.core.AbstractUpdateCommandStep.lambda$run$0(AbstractUpdateCommandStep.java:63)
+	at liquibase.Scope.lambda$child$0(Scope.java:184)
+	at liquibase.Scope.child(Scope.java:193)
+	at liquibase.Scope.child(Scope.java:183)
+	at liquibase.Scope.child(Scope.java:162)
+	at liquibase.command.core.AbstractUpdateCommandStep.run(AbstractUpdateCommandStep.java:62)
+	at liquibase.command.core.UpdateCommandStep.run(UpdateCommandStep.java:106)
+	at liquibase.command.CommandScope.execute(CommandScope.java:214)
+	... 30 common frames omitted
+Caused by: liquibase.exception.MigrationFailedException: Migration failed for changeset db/changelog/v1/changeset-v1.0.sql::raw::includeAll:
+     Reason: liquibase.exception.DatabaseException: ERROR: both default and identity specified for column "id" of table "product_details" [Failed SQL: (0) CREATE TABLE IF NOT EXISTS product_details (
+    id BIGSERIAL GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    year_of_issue INTEGER NOT NULL,
+    country_of_issue TEXT NOT NULL,
+    series TEXT NOT NULL,
+    category_id INTEGER NOT NULL,
+
+    CONSTRAINT category_id_fk FOREIGN KEY (category_id) REFERENCES categories (id)
+);
+
+CREATE TABLE IF NOT EXISTS products (
+    id BIGSERIAL GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    scu TEXT NOT NULL UNIQUE,
+    name TEXT NOT NULL,
+    number_of_reviews INTEGER NOT NULL,
+    price DECIMAL NOT NULL,
+    discount DECIMAL,
+    rating INTEGER NOT NULL,
+    quantity_in_stock BIGINT NOT NULL,
+    short_description TEXT NOT NULL,
+    images JSON NOT NULL,
+    name_of_subblock TEXT NOT NULL,
+    long_description TEXT NOT NULL,
+
+    CONSTRAINT id_fk FOREIGN KEY (id) REFERENCES product_details (id)
+);
+
+CREATE TABLE IF NOT EXISTS categories (
+    id BIGSERIAL GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    name TEXT NOT NULL,
+    img TEXT
+)]
+	at liquibase.changelog.ChangeSet.execute(ChangeSet.java:785)
+	at liquibase.changelog.visitor.UpdateVisitor.executeAcceptedChange(UpdateVisitor.java:118)
+	at liquibase.changelog.visitor.UpdateVisitor.visit(UpdateVisitor.java:68)
+	at liquibase.changelog.ChangeLogIterator$2.lambda$run$0(ChangeLogIterator.java:110)
+	at liquibase.Scope.lambda$child$0(Scope.java:184)
+	at liquibase.Scope.child(Scope.java:193)
+	at liquibase.Scope.child(Scope.java:183)
+	at liquibase.Scope.child(Scope.java:162)
+	at liquibase.Scope.child(Scope.java:250)
+	at liquibase.changelog.ChangeLogIterator$2.run(ChangeLogIterator.java:100)
+	at liquibase.Scope.lambda$child$0(Scope.java:184)
+	at liquibase.Scope.child(Scope.java:193)
+	at liquibase.Scope.child(Scope.java:183)
+	at liquibase.Scope.child(Scope.java:162)
+	at liquibase.Scope.child(Scope.java:250)
+	at liquibase.Scope.child(Scope.java:254)
+	at liquibase.changelog.ChangeLogIterator.run(ChangeLogIterator.java:74)
+	... 44 common frames omitted
+Caused by: liquibase.exception.DatabaseException: ERROR: both default and identity specified for column "id" of table "product_details" [Failed SQL: (0) CREATE TABLE IF NOT EXISTS product_details (
+    id BIGSERIAL GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    year_of_issue INTEGER NOT NULL,
+    country_of_issue TEXT NOT NULL,
+    series TEXT NOT NULL,
+    category_id INTEGER NOT NULL,
+
+    CONSTRAINT category_id_fk FOREIGN KEY (category_id) REFERENCES categories (id)
+);
+
+CREATE TABLE IF NOT EXISTS products (
+    id BIGSERIAL GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    scu TEXT NOT NULL UNIQUE,
+    name TEXT NOT NULL,
+    number_of_reviews INTEGER NOT NULL,
+    price DECIMAL NOT NULL,
+    discount DECIMAL,
+    rating INTEGER NOT NULL,
+    quantity_in_stock BIGINT NOT NULL,
+    short_description TEXT NOT NULL,
+    images JSON NOT NULL,
+    name_of_subblock TEXT NOT NULL,
+    long_description TEXT NOT NULL,
+
+    CONSTRAINT id_fk FOREIGN KEY (id) REFERENCES product_details (id)
+);
+
+CREATE TABLE IF NOT EXISTS categories (
+    id BIGSERIAL GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    name TEXT NOT NULL,
+    img TEXT
+)]
+	at liquibase.executor.jvm.JdbcExecutor$ExecuteStatementCallback.doInStatement(JdbcExecutor.java:468)
+	at liquibase.executor.jvm.JdbcExecutor.execute(JdbcExecutor.java:77)
+	at liquibase.executor.jvm.JdbcExecutor.execute(JdbcExecutor.java:177)
+	at liquibase.database.AbstractJdbcDatabase.execute(AbstractJdbcDatabase.java:1291)
+	at liquibase.database.AbstractJdbcDatabase.executeStatements(AbstractJdbcDatabase.java:1273)
+	at liquibase.changelog.ChangeSet.execute(ChangeSet.java:744)
+	... 60 common frames omitted
+Caused by: org.postgresql.util.PSQLException: ERROR: both default and identity specified for column "id" of table "product_details"
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:498)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:415)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:335)
+	at org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:321)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:297)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:292)
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94)
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
+	at liquibase.executor.jvm.JdbcExecutor$ExecuteStatementCallback.doInStatement(JdbcExecutor.java:462)
+	... 65 common frames omitted
+2024-03-21 18:16:12,024 [main] INFO  com.stamp.shop.ShopApplication - Starting ShopApplication using Java 21.0.2 with PID 16331 (/home/bohdan/Documents/0_Java/shop/target/classes started by bohdan in /home/bohdan/Documents/0_Java/shop)
+2024-03-21 18:16:12,028 [main] INFO  com.stamp.shop.ShopApplication - No active profile set, falling back to 1 default profile: "default"
+2024-03-21 18:16:12,818 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-03-21 18:16:12,848 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 18 ms. Found 0 JPA repository interfaces.
+2024-03-21 18:16:13,688 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-03-21 18:16:13,705 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-03-21 18:16:13,706 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-03-21 18:16:13,707 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.18]
+2024-03-21 18:16:13,831 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-03-21 18:16:13,832 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1743 ms
+2024-03-21 18:16:14,121 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-03-21 18:16:14,804 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@1a531422
+2024-03-21 18:16:14,815 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-03-21 18:16:15,010 [main] INFO  liquibase.database - Set default schema name to public
+2024-03-21 18:16:15,299 [main] INFO  liquibase.changelog - Reading from public.databasechangelog
+2024-03-21 18:16:15,359 [main] INFO  liquibase.lockservice - Successfully acquired change log lock
+2024-03-21 18:16:15,361 [main] INFO  liquibase.command - Using deploymentId: 1041375361
+2024-03-21 18:16:15,364 [main] INFO  liquibase.changelog - Reading from public.databasechangelog
+2024-03-21 18:16:15,433 [main] ERROR liquibase.changelog - ChangeSet db/changelog/v1/changeset-v1.0.sql::raw::includeAll encountered an exception.
+2024-03-21 18:16:15,437 [main] INFO  liquibase.command - Update command encountered an exception.
+2024-03-21 18:16:15,443 [main] INFO  liquibase.lockservice - Successfully released change log lock
+2024-03-21 18:16:15,445 [main] INFO  liquibase.command - Command execution complete
+2024-03-21 18:16:15,447 [main] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: liquibase.exception.LiquibaseException: liquibase.exception.MigrationFailedException: Migration failed for changeset db/changelog/v1/changeset-v1.0.sql::raw::includeAll:
+     Reason: liquibase.exception.DatabaseException: ERROR: both default and identity specified for column "id" of table "product_details" [Failed SQL: (0) CREATE TABLE IF NOT EXISTS product_details (
+    id BIGSERIAL GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    year_of_issue INTEGER NOT NULL,
+    country_of_issue TEXT NOT NULL,
+    series TEXT NOT NULL,
+    category_id INTEGER NOT NULL,
+
+    CONSTRAINT category_id_fk FOREIGN KEY (category_id) REFERENCES categories (id)
+);
+
+CREATE TABLE IF NOT EXISTS products (
+    id BIGSERIAL GENERATED ALWAYS AS IDENTITY PRIMARY KEY REFERENCES product_details (id),
+    scu TEXT NOT NULL UNIQUE,
+    name TEXT NOT NULL,
+    number_of_reviews INTEGER NOT NULL,
+    price DECIMAL NOT NULL,
+    discount DECIMAL,
+    rating INTEGER NOT NULL,
+    quantity_in_stock BIGINT NOT NULL,
+    short_description TEXT NOT NULL,
+    images JSON NOT NULL,
+    name_of_subblock TEXT NOT NULL,
+    long_description TEXT NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS categories (
+    id BIGSERIAL GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    name TEXT NOT NULL,
+    img TEXT
+)]
+2024-03-21 18:16:15,447 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-03-21 18:16:15,456 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2024-03-21 18:16:15,464 [main] INFO  o.a.catalina.core.StandardService - Stopping service [Tomcat]
+2024-03-21 18:16:15,485 [main] INFO  o.s.b.a.l.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2024-03-21 18:16:15,534 [main] ERROR o.s.boot.SpringApplication - Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: liquibase.exception.LiquibaseException: liquibase.exception.MigrationFailedException: Migration failed for changeset db/changelog/v1/changeset-v1.0.sql::raw::includeAll:
+     Reason: liquibase.exception.DatabaseException: ERROR: both default and identity specified for column "id" of table "product_details" [Failed SQL: (0) CREATE TABLE IF NOT EXISTS product_details (
+    id BIGSERIAL GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    year_of_issue INTEGER NOT NULL,
+    country_of_issue TEXT NOT NULL,
+    series TEXT NOT NULL,
+    category_id INTEGER NOT NULL,
+
+    CONSTRAINT category_id_fk FOREIGN KEY (category_id) REFERENCES categories (id)
+);
+
+CREATE TABLE IF NOT EXISTS products (
+    id BIGSERIAL GENERATED ALWAYS AS IDENTITY PRIMARY KEY REFERENCES product_details (id),
+    scu TEXT NOT NULL UNIQUE,
+    name TEXT NOT NULL,
+    number_of_reviews INTEGER NOT NULL,
+    price DECIMAL NOT NULL,
+    discount DECIMAL,
+    rating INTEGER NOT NULL,
+    quantity_in_stock BIGINT NOT NULL,
+    short_description TEXT NOT NULL,
+    images JSON NOT NULL,
+    name_of_subblock TEXT NOT NULL,
+    long_description TEXT NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS categories (
+    id BIGSERIAL GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    name TEXT NOT NULL,
+    img TEXT
+)]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1773)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:599)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:521)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:325)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:323)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:312)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1231)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:949)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:624)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:334)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343)
+	at com.stamp.shop.ShopApplication.main(ShopApplication.java:11)
+Caused by: liquibase.exception.CommandExecutionException: liquibase.exception.LiquibaseException: liquibase.exception.MigrationFailedException: Migration failed for changeset db/changelog/v1/changeset-v1.0.sql::raw::includeAll:
+     Reason: liquibase.exception.DatabaseException: ERROR: both default and identity specified for column "id" of table "product_details" [Failed SQL: (0) CREATE TABLE IF NOT EXISTS product_details (
+    id BIGSERIAL GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    year_of_issue INTEGER NOT NULL,
+    country_of_issue TEXT NOT NULL,
+    series TEXT NOT NULL,
+    category_id INTEGER NOT NULL,
+
+    CONSTRAINT category_id_fk FOREIGN KEY (category_id) REFERENCES categories (id)
+);
+
+CREATE TABLE IF NOT EXISTS products (
+    id BIGSERIAL GENERATED ALWAYS AS IDENTITY PRIMARY KEY REFERENCES product_details (id),
+    scu TEXT NOT NULL UNIQUE,
+    name TEXT NOT NULL,
+    number_of_reviews INTEGER NOT NULL,
+    price DECIMAL NOT NULL,
+    discount DECIMAL,
+    rating INTEGER NOT NULL,
+    quantity_in_stock BIGINT NOT NULL,
+    short_description TEXT NOT NULL,
+    images JSON NOT NULL,
+    name_of_subblock TEXT NOT NULL,
+    long_description TEXT NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS categories (
+    id BIGSERIAL GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    name TEXT NOT NULL,
+    img TEXT
+)]
+	at liquibase.command.CommandScope.execute(CommandScope.java:237)
+	at liquibase.Liquibase.lambda$update$0(Liquibase.java:222)
+	at liquibase.Scope.lambda$child$0(Scope.java:184)
+	at liquibase.Scope.child(Scope.java:193)
+	at liquibase.Scope.child(Scope.java:183)
+	at liquibase.Scope.child(Scope.java:162)
+	at liquibase.Liquibase.runInScope(Liquibase.java:1371)
+	at liquibase.Liquibase.update(Liquibase.java:211)
+	at liquibase.Liquibase.update(Liquibase.java:193)
+	at liquibase.integration.spring.SpringLiquibase.performUpdate(SpringLiquibase.java:331)
+	at liquibase.integration.spring.SpringLiquibase.afterPropertiesSet(SpringLiquibase.java:286)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1820)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1769)
+	... 18 common frames omitted
+Caused by: liquibase.exception.LiquibaseException: liquibase.exception.MigrationFailedException: Migration failed for changeset db/changelog/v1/changeset-v1.0.sql::raw::includeAll:
+     Reason: liquibase.exception.DatabaseException: ERROR: both default and identity specified for column "id" of table "product_details" [Failed SQL: (0) CREATE TABLE IF NOT EXISTS product_details (
+    id BIGSERIAL GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    year_of_issue INTEGER NOT NULL,
+    country_of_issue TEXT NOT NULL,
+    series TEXT NOT NULL,
+    category_id INTEGER NOT NULL,
+
+    CONSTRAINT category_id_fk FOREIGN KEY (category_id) REFERENCES categories (id)
+);
+
+CREATE TABLE IF NOT EXISTS products (
+    id BIGSERIAL GENERATED ALWAYS AS IDENTITY PRIMARY KEY REFERENCES product_details (id),
+    scu TEXT NOT NULL UNIQUE,
+    name TEXT NOT NULL,
+    number_of_reviews INTEGER NOT NULL,
+    price DECIMAL NOT NULL,
+    discount DECIMAL,
+    rating INTEGER NOT NULL,
+    quantity_in_stock BIGINT NOT NULL,
+    short_description TEXT NOT NULL,
+    images JSON NOT NULL,
+    name_of_subblock TEXT NOT NULL,
+    long_description TEXT NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS categories (
+    id BIGSERIAL GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    name TEXT NOT NULL,
+    img TEXT
+)]
+	at liquibase.changelog.ChangeLogIterator.run(ChangeLogIterator.java:122)
+	at liquibase.command.core.AbstractUpdateCommandStep.lambda$doRun$1(AbstractUpdateCommandStep.java:105)
+	at liquibase.Scope.lambda$child$0(Scope.java:184)
+	at liquibase.Scope.child(Scope.java:193)
+	at liquibase.Scope.child(Scope.java:183)
+	at liquibase.Scope.child(Scope.java:162)
+	at liquibase.command.core.AbstractUpdateCommandStep.doRun(AbstractUpdateCommandStep.java:104)
+	at liquibase.command.core.AbstractUpdateCommandStep.lambda$run$0(AbstractUpdateCommandStep.java:63)
+	at liquibase.Scope.lambda$child$0(Scope.java:184)
+	at liquibase.Scope.child(Scope.java:193)
+	at liquibase.Scope.child(Scope.java:183)
+	at liquibase.Scope.child(Scope.java:162)
+	at liquibase.command.core.AbstractUpdateCommandStep.run(AbstractUpdateCommandStep.java:62)
+	at liquibase.command.core.UpdateCommandStep.run(UpdateCommandStep.java:106)
+	at liquibase.command.CommandScope.execute(CommandScope.java:214)
+	... 30 common frames omitted
+Caused by: liquibase.exception.MigrationFailedException: Migration failed for changeset db/changelog/v1/changeset-v1.0.sql::raw::includeAll:
+     Reason: liquibase.exception.DatabaseException: ERROR: both default and identity specified for column "id" of table "product_details" [Failed SQL: (0) CREATE TABLE IF NOT EXISTS product_details (
+    id BIGSERIAL GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    year_of_issue INTEGER NOT NULL,
+    country_of_issue TEXT NOT NULL,
+    series TEXT NOT NULL,
+    category_id INTEGER NOT NULL,
+
+    CONSTRAINT category_id_fk FOREIGN KEY (category_id) REFERENCES categories (id)
+);
+
+CREATE TABLE IF NOT EXISTS products (
+    id BIGSERIAL GENERATED ALWAYS AS IDENTITY PRIMARY KEY REFERENCES product_details (id),
+    scu TEXT NOT NULL UNIQUE,
+    name TEXT NOT NULL,
+    number_of_reviews INTEGER NOT NULL,
+    price DECIMAL NOT NULL,
+    discount DECIMAL,
+    rating INTEGER NOT NULL,
+    quantity_in_stock BIGINT NOT NULL,
+    short_description TEXT NOT NULL,
+    images JSON NOT NULL,
+    name_of_subblock TEXT NOT NULL,
+    long_description TEXT NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS categories (
+    id BIGSERIAL GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    name TEXT NOT NULL,
+    img TEXT
+)]
+	at liquibase.changelog.ChangeSet.execute(ChangeSet.java:785)
+	at liquibase.changelog.visitor.UpdateVisitor.executeAcceptedChange(UpdateVisitor.java:118)
+	at liquibase.changelog.visitor.UpdateVisitor.visit(UpdateVisitor.java:68)
+	at liquibase.changelog.ChangeLogIterator$2.lambda$run$0(ChangeLogIterator.java:110)
+	at liquibase.Scope.lambda$child$0(Scope.java:184)
+	at liquibase.Scope.child(Scope.java:193)
+	at liquibase.Scope.child(Scope.java:183)
+	at liquibase.Scope.child(Scope.java:162)
+	at liquibase.Scope.child(Scope.java:250)
+	at liquibase.changelog.ChangeLogIterator$2.run(ChangeLogIterator.java:100)
+	at liquibase.Scope.lambda$child$0(Scope.java:184)
+	at liquibase.Scope.child(Scope.java:193)
+	at liquibase.Scope.child(Scope.java:183)
+	at liquibase.Scope.child(Scope.java:162)
+	at liquibase.Scope.child(Scope.java:250)
+	at liquibase.Scope.child(Scope.java:254)
+	at liquibase.changelog.ChangeLogIterator.run(ChangeLogIterator.java:74)
+	... 44 common frames omitted
+Caused by: liquibase.exception.DatabaseException: ERROR: both default and identity specified for column "id" of table "product_details" [Failed SQL: (0) CREATE TABLE IF NOT EXISTS product_details (
+    id BIGSERIAL GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    year_of_issue INTEGER NOT NULL,
+    country_of_issue TEXT NOT NULL,
+    series TEXT NOT NULL,
+    category_id INTEGER NOT NULL,
+
+    CONSTRAINT category_id_fk FOREIGN KEY (category_id) REFERENCES categories (id)
+);
+
+CREATE TABLE IF NOT EXISTS products (
+    id BIGSERIAL GENERATED ALWAYS AS IDENTITY PRIMARY KEY REFERENCES product_details (id),
+    scu TEXT NOT NULL UNIQUE,
+    name TEXT NOT NULL,
+    number_of_reviews INTEGER NOT NULL,
+    price DECIMAL NOT NULL,
+    discount DECIMAL,
+    rating INTEGER NOT NULL,
+    quantity_in_stock BIGINT NOT NULL,
+    short_description TEXT NOT NULL,
+    images JSON NOT NULL,
+    name_of_subblock TEXT NOT NULL,
+    long_description TEXT NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS categories (
+    id BIGSERIAL GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    name TEXT NOT NULL,
+    img TEXT
+)]
+	at liquibase.executor.jvm.JdbcExecutor$ExecuteStatementCallback.doInStatement(JdbcExecutor.java:468)
+	at liquibase.executor.jvm.JdbcExecutor.execute(JdbcExecutor.java:77)
+	at liquibase.executor.jvm.JdbcExecutor.execute(JdbcExecutor.java:177)
+	at liquibase.database.AbstractJdbcDatabase.execute(AbstractJdbcDatabase.java:1291)
+	at liquibase.database.AbstractJdbcDatabase.executeStatements(AbstractJdbcDatabase.java:1273)
+	at liquibase.changelog.ChangeSet.execute(ChangeSet.java:744)
+	... 60 common frames omitted
+Caused by: org.postgresql.util.PSQLException: ERROR: both default and identity specified for column "id" of table "product_details"
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:498)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:415)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:335)
+	at org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:321)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:297)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:292)
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94)
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
+	at liquibase.executor.jvm.JdbcExecutor$ExecuteStatementCallback.doInStatement(JdbcExecutor.java:462)
+	... 65 common frames omitted
+2024-03-21 18:21:08,168 [main] INFO  com.stamp.shop.ShopApplication - Starting ShopApplication using Java 21.0.2 with PID 16948 (/home/bohdan/Documents/0_Java/shop/target/classes started by bohdan in /home/bohdan/Documents/0_Java/shop)
+2024-03-21 18:21:08,173 [main] INFO  com.stamp.shop.ShopApplication - No active profile set, falling back to 1 default profile: "default"
+2024-03-21 18:21:09,000 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-03-21 18:21:09,029 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 15 ms. Found 0 JPA repository interfaces.
+2024-03-21 18:21:09,755 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-03-21 18:21:09,767 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-03-21 18:21:09,768 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-03-21 18:21:09,769 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.18]
+2024-03-21 18:21:09,869 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-03-21 18:21:09,870 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1631 ms
+2024-03-21 18:21:10,075 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-03-21 18:21:10,777 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@3c88191b
+2024-03-21 18:21:10,780 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-03-21 18:21:10,985 [main] INFO  liquibase.database - Set default schema name to public
+2024-03-21 18:21:11,254 [main] INFO  liquibase.changelog - Reading from public.databasechangelog
+2024-03-21 18:21:11,312 [main] INFO  liquibase.lockservice - Successfully acquired change log lock
+2024-03-21 18:21:11,313 [main] INFO  liquibase.command - Using deploymentId: 1041671313
+2024-03-21 18:21:11,316 [main] INFO  liquibase.changelog - Reading from public.databasechangelog
+2024-03-21 18:21:11,438 [main] ERROR liquibase.changelog - ChangeSet db/changelog/v1/changeset-v1.0.sql::raw::includeAll encountered an exception.
+2024-03-21 18:21:11,442 [main] INFO  liquibase.command - Update command encountered an exception.
+2024-03-21 18:21:11,449 [main] INFO  liquibase.lockservice - Successfully released change log lock
+2024-03-21 18:21:11,450 [main] INFO  liquibase.command - Command execution complete
+2024-03-21 18:21:11,451 [main] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: liquibase.exception.LiquibaseException: liquibase.exception.MigrationFailedException: Migration failed for changeset db/changelog/v1/changeset-v1.0.sql::raw::includeAll:
+     Reason: liquibase.exception.DatabaseException: ERROR: relation "categories" does not exist [Failed SQL: (0) CREATE TABLE IF NOT EXISTS product_details (
+    id BIGSERIAL PRIMARY KEY,
+    year_of_issue INTEGER NOT NULL,
+    country_of_issue TEXT NOT NULL,
+    series TEXT NOT NULL,
+    category_id INTEGER NOT NULL,
+
+    CONSTRAINT category_id_fk FOREIGN KEY (category_id) REFERENCES categories (id)
+);
+
+CREATE TABLE IF NOT EXISTS products (
+    id BIGSERIAL PRIMARY KEY REFERENCES product_details (id),
+    scu TEXT NOT NULL UNIQUE,
+    name TEXT NOT NULL,
+    number_of_reviews INTEGER NOT NULL,
+    price DECIMAL NOT NULL,
+    discount DECIMAL,
+    rating INTEGER NOT NULL,
+    quantity_in_stock BIGINT NOT NULL,
+    short_description TEXT NOT NULL,
+    images JSON NOT NULL,
+    name_of_subblock TEXT NOT NULL,
+    long_description TEXT NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS categories (
+    id BIGSERIAL PRIMARY KEY,
+    name TEXT NOT NULL,
+    img TEXT
+)]
+2024-03-21 18:21:11,451 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-03-21 18:21:11,460 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2024-03-21 18:21:11,467 [main] INFO  o.a.catalina.core.StandardService - Stopping service [Tomcat]
+2024-03-21 18:21:11,483 [main] INFO  o.s.b.a.l.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2024-03-21 18:21:11,511 [main] ERROR o.s.boot.SpringApplication - Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: liquibase.exception.LiquibaseException: liquibase.exception.MigrationFailedException: Migration failed for changeset db/changelog/v1/changeset-v1.0.sql::raw::includeAll:
+     Reason: liquibase.exception.DatabaseException: ERROR: relation "categories" does not exist [Failed SQL: (0) CREATE TABLE IF NOT EXISTS product_details (
+    id BIGSERIAL PRIMARY KEY,
+    year_of_issue INTEGER NOT NULL,
+    country_of_issue TEXT NOT NULL,
+    series TEXT NOT NULL,
+    category_id INTEGER NOT NULL,
+
+    CONSTRAINT category_id_fk FOREIGN KEY (category_id) REFERENCES categories (id)
+);
+
+CREATE TABLE IF NOT EXISTS products (
+    id BIGSERIAL PRIMARY KEY REFERENCES product_details (id),
+    scu TEXT NOT NULL UNIQUE,
+    name TEXT NOT NULL,
+    number_of_reviews INTEGER NOT NULL,
+    price DECIMAL NOT NULL,
+    discount DECIMAL,
+    rating INTEGER NOT NULL,
+    quantity_in_stock BIGINT NOT NULL,
+    short_description TEXT NOT NULL,
+    images JSON NOT NULL,
+    name_of_subblock TEXT NOT NULL,
+    long_description TEXT NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS categories (
+    id BIGSERIAL PRIMARY KEY,
+    name TEXT NOT NULL,
+    img TEXT
+)]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1773)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:599)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:521)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:325)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:323)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:312)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1231)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:949)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:624)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:334)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343)
+	at com.stamp.shop.ShopApplication.main(ShopApplication.java:11)
+Caused by: liquibase.exception.CommandExecutionException: liquibase.exception.LiquibaseException: liquibase.exception.MigrationFailedException: Migration failed for changeset db/changelog/v1/changeset-v1.0.sql::raw::includeAll:
+     Reason: liquibase.exception.DatabaseException: ERROR: relation "categories" does not exist [Failed SQL: (0) CREATE TABLE IF NOT EXISTS product_details (
+    id BIGSERIAL PRIMARY KEY,
+    year_of_issue INTEGER NOT NULL,
+    country_of_issue TEXT NOT NULL,
+    series TEXT NOT NULL,
+    category_id INTEGER NOT NULL,
+
+    CONSTRAINT category_id_fk FOREIGN KEY (category_id) REFERENCES categories (id)
+);
+
+CREATE TABLE IF NOT EXISTS products (
+    id BIGSERIAL PRIMARY KEY REFERENCES product_details (id),
+    scu TEXT NOT NULL UNIQUE,
+    name TEXT NOT NULL,
+    number_of_reviews INTEGER NOT NULL,
+    price DECIMAL NOT NULL,
+    discount DECIMAL,
+    rating INTEGER NOT NULL,
+    quantity_in_stock BIGINT NOT NULL,
+    short_description TEXT NOT NULL,
+    images JSON NOT NULL,
+    name_of_subblock TEXT NOT NULL,
+    long_description TEXT NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS categories (
+    id BIGSERIAL PRIMARY KEY,
+    name TEXT NOT NULL,
+    img TEXT
+)]
+	at liquibase.command.CommandScope.execute(CommandScope.java:237)
+	at liquibase.Liquibase.lambda$update$0(Liquibase.java:222)
+	at liquibase.Scope.lambda$child$0(Scope.java:184)
+	at liquibase.Scope.child(Scope.java:193)
+	at liquibase.Scope.child(Scope.java:183)
+	at liquibase.Scope.child(Scope.java:162)
+	at liquibase.Liquibase.runInScope(Liquibase.java:1371)
+	at liquibase.Liquibase.update(Liquibase.java:211)
+	at liquibase.Liquibase.update(Liquibase.java:193)
+	at liquibase.integration.spring.SpringLiquibase.performUpdate(SpringLiquibase.java:331)
+	at liquibase.integration.spring.SpringLiquibase.afterPropertiesSet(SpringLiquibase.java:286)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1820)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1769)
+	... 18 common frames omitted
+Caused by: liquibase.exception.LiquibaseException: liquibase.exception.MigrationFailedException: Migration failed for changeset db/changelog/v1/changeset-v1.0.sql::raw::includeAll:
+     Reason: liquibase.exception.DatabaseException: ERROR: relation "categories" does not exist [Failed SQL: (0) CREATE TABLE IF NOT EXISTS product_details (
+    id BIGSERIAL PRIMARY KEY,
+    year_of_issue INTEGER NOT NULL,
+    country_of_issue TEXT NOT NULL,
+    series TEXT NOT NULL,
+    category_id INTEGER NOT NULL,
+
+    CONSTRAINT category_id_fk FOREIGN KEY (category_id) REFERENCES categories (id)
+);
+
+CREATE TABLE IF NOT EXISTS products (
+    id BIGSERIAL PRIMARY KEY REFERENCES product_details (id),
+    scu TEXT NOT NULL UNIQUE,
+    name TEXT NOT NULL,
+    number_of_reviews INTEGER NOT NULL,
+    price DECIMAL NOT NULL,
+    discount DECIMAL,
+    rating INTEGER NOT NULL,
+    quantity_in_stock BIGINT NOT NULL,
+    short_description TEXT NOT NULL,
+    images JSON NOT NULL,
+    name_of_subblock TEXT NOT NULL,
+    long_description TEXT NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS categories (
+    id BIGSERIAL PRIMARY KEY,
+    name TEXT NOT NULL,
+    img TEXT
+)]
+	at liquibase.changelog.ChangeLogIterator.run(ChangeLogIterator.java:122)
+	at liquibase.command.core.AbstractUpdateCommandStep.lambda$doRun$1(AbstractUpdateCommandStep.java:105)
+	at liquibase.Scope.lambda$child$0(Scope.java:184)
+	at liquibase.Scope.child(Scope.java:193)
+	at liquibase.Scope.child(Scope.java:183)
+	at liquibase.Scope.child(Scope.java:162)
+	at liquibase.command.core.AbstractUpdateCommandStep.doRun(AbstractUpdateCommandStep.java:104)
+	at liquibase.command.core.AbstractUpdateCommandStep.lambda$run$0(AbstractUpdateCommandStep.java:63)
+	at liquibase.Scope.lambda$child$0(Scope.java:184)
+	at liquibase.Scope.child(Scope.java:193)
+	at liquibase.Scope.child(Scope.java:183)
+	at liquibase.Scope.child(Scope.java:162)
+	at liquibase.command.core.AbstractUpdateCommandStep.run(AbstractUpdateCommandStep.java:62)
+	at liquibase.command.core.UpdateCommandStep.run(UpdateCommandStep.java:106)
+	at liquibase.command.CommandScope.execute(CommandScope.java:214)
+	... 30 common frames omitted
+Caused by: liquibase.exception.MigrationFailedException: Migration failed for changeset db/changelog/v1/changeset-v1.0.sql::raw::includeAll:
+     Reason: liquibase.exception.DatabaseException: ERROR: relation "categories" does not exist [Failed SQL: (0) CREATE TABLE IF NOT EXISTS product_details (
+    id BIGSERIAL PRIMARY KEY,
+    year_of_issue INTEGER NOT NULL,
+    country_of_issue TEXT NOT NULL,
+    series TEXT NOT NULL,
+    category_id INTEGER NOT NULL,
+
+    CONSTRAINT category_id_fk FOREIGN KEY (category_id) REFERENCES categories (id)
+);
+
+CREATE TABLE IF NOT EXISTS products (
+    id BIGSERIAL PRIMARY KEY REFERENCES product_details (id),
+    scu TEXT NOT NULL UNIQUE,
+    name TEXT NOT NULL,
+    number_of_reviews INTEGER NOT NULL,
+    price DECIMAL NOT NULL,
+    discount DECIMAL,
+    rating INTEGER NOT NULL,
+    quantity_in_stock BIGINT NOT NULL,
+    short_description TEXT NOT NULL,
+    images JSON NOT NULL,
+    name_of_subblock TEXT NOT NULL,
+    long_description TEXT NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS categories (
+    id BIGSERIAL PRIMARY KEY,
+    name TEXT NOT NULL,
+    img TEXT
+)]
+	at liquibase.changelog.ChangeSet.execute(ChangeSet.java:785)
+	at liquibase.changelog.visitor.UpdateVisitor.executeAcceptedChange(UpdateVisitor.java:118)
+	at liquibase.changelog.visitor.UpdateVisitor.visit(UpdateVisitor.java:68)
+	at liquibase.changelog.ChangeLogIterator$2.lambda$run$0(ChangeLogIterator.java:110)
+	at liquibase.Scope.lambda$child$0(Scope.java:184)
+	at liquibase.Scope.child(Scope.java:193)
+	at liquibase.Scope.child(Scope.java:183)
+	at liquibase.Scope.child(Scope.java:162)
+	at liquibase.Scope.child(Scope.java:250)
+	at liquibase.changelog.ChangeLogIterator$2.run(ChangeLogIterator.java:100)
+	at liquibase.Scope.lambda$child$0(Scope.java:184)
+	at liquibase.Scope.child(Scope.java:193)
+	at liquibase.Scope.child(Scope.java:183)
+	at liquibase.Scope.child(Scope.java:162)
+	at liquibase.Scope.child(Scope.java:250)
+	at liquibase.Scope.child(Scope.java:254)
+	at liquibase.changelog.ChangeLogIterator.run(ChangeLogIterator.java:74)
+	... 44 common frames omitted
+Caused by: liquibase.exception.DatabaseException: ERROR: relation "categories" does not exist [Failed SQL: (0) CREATE TABLE IF NOT EXISTS product_details (
+    id BIGSERIAL PRIMARY KEY,
+    year_of_issue INTEGER NOT NULL,
+    country_of_issue TEXT NOT NULL,
+    series TEXT NOT NULL,
+    category_id INTEGER NOT NULL,
+
+    CONSTRAINT category_id_fk FOREIGN KEY (category_id) REFERENCES categories (id)
+);
+
+CREATE TABLE IF NOT EXISTS products (
+    id BIGSERIAL PRIMARY KEY REFERENCES product_details (id),
+    scu TEXT NOT NULL UNIQUE,
+    name TEXT NOT NULL,
+    number_of_reviews INTEGER NOT NULL,
+    price DECIMAL NOT NULL,
+    discount DECIMAL,
+    rating INTEGER NOT NULL,
+    quantity_in_stock BIGINT NOT NULL,
+    short_description TEXT NOT NULL,
+    images JSON NOT NULL,
+    name_of_subblock TEXT NOT NULL,
+    long_description TEXT NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS categories (
+    id BIGSERIAL PRIMARY KEY,
+    name TEXT NOT NULL,
+    img TEXT
+)]
+	at liquibase.executor.jvm.JdbcExecutor$ExecuteStatementCallback.doInStatement(JdbcExecutor.java:468)
+	at liquibase.executor.jvm.JdbcExecutor.execute(JdbcExecutor.java:77)
+	at liquibase.executor.jvm.JdbcExecutor.execute(JdbcExecutor.java:177)
+	at liquibase.database.AbstractJdbcDatabase.execute(AbstractJdbcDatabase.java:1291)
+	at liquibase.database.AbstractJdbcDatabase.executeStatements(AbstractJdbcDatabase.java:1273)
+	at liquibase.changelog.ChangeSet.execute(ChangeSet.java:744)
+	... 60 common frames omitted
+Caused by: org.postgresql.util.PSQLException: ERROR: relation "categories" does not exist
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:498)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:415)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:335)
+	at org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:321)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:297)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:292)
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94)
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
+	at liquibase.executor.jvm.JdbcExecutor$ExecuteStatementCallback.doInStatement(JdbcExecutor.java:462)
+	... 65 common frames omitted
+2024-03-21 18:21:40,069 [main] INFO  com.stamp.shop.ShopApplication - Starting ShopApplication using Java 21.0.2 with PID 17068 (/home/bohdan/Documents/0_Java/shop/target/classes started by bohdan in /home/bohdan/Documents/0_Java/shop)
+2024-03-21 18:21:40,075 [main] INFO  com.stamp.shop.ShopApplication - No active profile set, falling back to 1 default profile: "default"
+2024-03-21 18:21:40,890 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-03-21 18:21:40,915 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 13 ms. Found 0 JPA repository interfaces.
+2024-03-21 18:21:41,716 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-03-21 18:21:41,728 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-03-21 18:21:41,730 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-03-21 18:21:41,730 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.18]
+2024-03-21 18:21:41,854 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-03-21 18:21:41,855 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1707 ms
+2024-03-21 18:21:42,075 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-03-21 18:21:42,596 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@7a388990
+2024-03-21 18:21:42,597 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-03-21 18:21:42,771 [main] INFO  liquibase.database - Set default schema name to public
+2024-03-21 18:21:43,060 [main] INFO  liquibase.changelog - Reading from public.databasechangelog
+2024-03-21 18:21:43,115 [main] INFO  liquibase.lockservice - Successfully acquired change log lock
+2024-03-21 18:21:43,116 [main] INFO  liquibase.command - Using deploymentId: 1041703116
+2024-03-21 18:21:43,118 [main] INFO  liquibase.changelog - Reading from public.databasechangelog
+2024-03-21 18:21:43,234 [main] INFO  liquibase.changelog - Custom SQL executed
+2024-03-21 18:21:43,239 [main] INFO  liquibase.changelog - ChangeSet db/changelog/v1/changeset-v1.0.sql::raw::includeAll ran successfully in 87ms
+2024-03-21 18:21:43,256 [main] INFO  liquibase.util - UPDATE SUMMARY
+2024-03-21 18:21:43,257 [main] INFO  liquibase.util - Run:                          1
+2024-03-21 18:21:43,257 [main] INFO  liquibase.util - Previously run:               0
+2024-03-21 18:21:43,257 [main] INFO  liquibase.util - Filtered out:                 0
+2024-03-21 18:21:43,257 [main] INFO  liquibase.util - -------------------------------
+2024-03-21 18:21:43,257 [main] INFO  liquibase.util - Total change sets:            1
+2024-03-21 18:21:43,257 [main] INFO  liquibase.util - Update summary generated
+2024-03-21 18:21:43,260 [main] INFO  liquibase.command - Update command completed successfully.
+2024-03-21 18:21:43,267 [main] INFO  liquibase.lockservice - Successfully released change log lock
+2024-03-21 18:21:43,269 [main] INFO  liquibase.command - Command execution complete
+2024-03-21 18:21:43,441 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-03-21 18:21:43,617 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.1.Final
+2024-03-21 18:21:43,704 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-03-21 18:21:44,351 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-03-21 18:21:44,798 [main] ERROR o.s.o.j.LocalContainerEntityManagerFactoryBean - Failed to initialize JPA EntityManagerFactory: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.MappingException: Column 'id' is duplicated in mapping for entity 'com.stamp.shop.product.entity.ProductDetails' (use '@Column(insertable=false, updatable=false)' when mapping multiple properties to the same column)
+2024-03-21 18:21:44,799 [main] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.MappingException: Column 'id' is duplicated in mapping for entity 'com.stamp.shop.product.entity.ProductDetails' (use '@Column(insertable=false, updatable=false)' when mapping multiple properties to the same column)
+2024-03-21 18:21:44,800 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-03-21 18:21:44,808 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2024-03-21 18:21:44,810 [main] INFO  o.a.catalina.core.StandardService - Stopping service [Tomcat]
+2024-03-21 18:21:44,840 [main] INFO  o.s.b.a.l.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2024-03-21 18:21:44,929 [main] ERROR o.s.boot.SpringApplication - Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.MappingException: Column 'id' is duplicated in mapping for entity 'com.stamp.shop.product.entity.ProductDetails' (use '@Column(insertable=false, updatable=false)' when mapping multiple properties to the same column)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1773)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:599)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:521)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:325)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:323)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1231)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:949)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:624)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:334)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343)
+	at com.stamp.shop.ShopApplication.main(ShopApplication.java:11)
+Caused by: jakarta.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.MappingException: Column 'id' is duplicated in mapping for entity 'com.stamp.shop.product.entity.ProductDetails' (use '@Column(insertable=false, updatable=false)' when mapping multiple properties to the same column)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:421)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:352)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1820)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1769)
+	... 16 common frames omitted
+Caused by: org.hibernate.MappingException: Column 'id' is duplicated in mapping for entity 'com.stamp.shop.product.entity.ProductDetails' (use '@Column(insertable=false, updatable=false)' when mapping multiple properties to the same column)
+	at org.hibernate.mapping.Value.checkColumnDuplication(Value.java:197)
+	at org.hibernate.mapping.MappingHelper.checkPropertyColumnDuplication(MappingHelper.java:249)
+	at org.hibernate.mapping.PersistentClass.checkColumnDuplication(PersistentClass.java:935)
+	at org.hibernate.mapping.PersistentClass.validate(PersistentClass.java:678)
+	at org.hibernate.mapping.RootClass.validate(RootClass.java:273)
+	at org.hibernate.boot.internal.MetadataImpl.validate(MetadataImpl.java:497)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:273)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:450)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1507)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:75)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:376)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
+	... 20 common frames omitted
+2024-03-21 18:27:32,284 [main] INFO  com.stamp.shop.ShopApplication - Starting ShopApplication using Java 21.0.2 with PID 6020 (/home/bohdan/Documents/0_Java/shop/target/classes started by bohdan in /home/bohdan/Documents/0_Java/shop)
+2024-03-21 18:27:32,288 [main] INFO  com.stamp.shop.ShopApplication - No active profile set, falling back to 1 default profile: "default"
+2024-03-21 18:27:33,124 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-03-21 18:27:33,154 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 16 ms. Found 0 JPA repository interfaces.
+2024-03-21 18:27:33,926 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-03-21 18:27:33,938 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-03-21 18:27:33,940 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-03-21 18:27:33,940 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.18]
+2024-03-21 18:27:34,043 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-03-21 18:27:34,043 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1697 ms
+2024-03-21 18:27:34,256 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-03-21 18:27:34,747 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@61b65d54
+2024-03-21 18:27:34,749 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-03-21 18:27:34,917 [main] INFO  liquibase.database - Set default schema name to public
+2024-03-21 18:27:35,148 [main] INFO  liquibase.changelog - Creating database history table with name: public.databasechangelog
+2024-03-21 18:27:35,205 [main] INFO  liquibase.changelog - Reading from public.databasechangelog
+2024-03-21 18:27:35,272 [main] INFO  liquibase.lockservice - Successfully acquired change log lock
+2024-03-21 18:27:35,273 [main] INFO  liquibase.command - Using deploymentId: 1042055273
+2024-03-21 18:27:35,275 [main] INFO  liquibase.changelog - Reading from public.databasechangelog
+2024-03-21 18:27:35,375 [main] INFO  liquibase.changelog - Custom SQL executed
+2024-03-21 18:27:35,381 [main] INFO  liquibase.changelog - ChangeSet db/changelog/v1/changeset-v1.0.sql::raw::includeAll ran successfully in 74ms
+2024-03-21 18:27:35,397 [main] INFO  liquibase.util - UPDATE SUMMARY
+2024-03-21 18:27:35,397 [main] INFO  liquibase.util - Run:                          1
+2024-03-21 18:27:35,397 [main] INFO  liquibase.util - Previously run:               0
+2024-03-21 18:27:35,398 [main] INFO  liquibase.util - Filtered out:                 0
+2024-03-21 18:27:35,398 [main] INFO  liquibase.util - -------------------------------
+2024-03-21 18:27:35,398 [main] INFO  liquibase.util - Total change sets:            1
+2024-03-21 18:27:35,398 [main] INFO  liquibase.util - Update summary generated
+2024-03-21 18:27:35,400 [main] INFO  liquibase.command - Update command completed successfully.
+2024-03-21 18:27:35,406 [main] INFO  liquibase.lockservice - Successfully released change log lock
+2024-03-21 18:27:35,407 [main] INFO  liquibase.command - Command execution complete
+2024-03-21 18:27:35,537 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-03-21 18:27:35,629 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.1.Final
+2024-03-21 18:27:35,675 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-03-21 18:27:36,133 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-03-21 18:27:36,467 [main] ERROR o.s.o.j.LocalContainerEntityManagerFactoryBean - Failed to initialize JPA EntityManagerFactory: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.MappingException: Column 'id' is duplicated in mapping for entity 'com.stamp.shop.product.entity.ProductDetails' (use '@Column(insertable=false, updatable=false)' when mapping multiple properties to the same column)
+2024-03-21 18:27:36,468 [main] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.MappingException: Column 'id' is duplicated in mapping for entity 'com.stamp.shop.product.entity.ProductDetails' (use '@Column(insertable=false, updatable=false)' when mapping multiple properties to the same column)
+2024-03-21 18:27:36,468 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-03-21 18:27:36,475 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2024-03-21 18:27:36,478 [main] INFO  o.a.catalina.core.StandardService - Stopping service [Tomcat]
+2024-03-21 18:27:36,496 [main] INFO  o.s.b.a.l.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2024-03-21 18:27:36,514 [main] ERROR o.s.boot.SpringApplication - Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.MappingException: Column 'id' is duplicated in mapping for entity 'com.stamp.shop.product.entity.ProductDetails' (use '@Column(insertable=false, updatable=false)' when mapping multiple properties to the same column)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1773)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:599)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:521)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:325)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:323)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1231)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:949)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:624)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:334)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343)
+	at com.stamp.shop.ShopApplication.main(ShopApplication.java:11)
+Caused by: jakarta.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.MappingException: Column 'id' is duplicated in mapping for entity 'com.stamp.shop.product.entity.ProductDetails' (use '@Column(insertable=false, updatable=false)' when mapping multiple properties to the same column)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:421)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:352)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1820)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1769)
+	... 16 common frames omitted
+Caused by: org.hibernate.MappingException: Column 'id' is duplicated in mapping for entity 'com.stamp.shop.product.entity.ProductDetails' (use '@Column(insertable=false, updatable=false)' when mapping multiple properties to the same column)
+	at org.hibernate.mapping.Value.checkColumnDuplication(Value.java:197)
+	at org.hibernate.mapping.MappingHelper.checkPropertyColumnDuplication(MappingHelper.java:249)
+	at org.hibernate.mapping.PersistentClass.checkColumnDuplication(PersistentClass.java:935)
+	at org.hibernate.mapping.PersistentClass.validate(PersistentClass.java:678)
+	at org.hibernate.mapping.RootClass.validate(RootClass.java:273)
+	at org.hibernate.boot.internal.MetadataImpl.validate(MetadataImpl.java:497)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:273)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:450)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1507)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:75)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:376)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
+	... 20 common frames omitted
+2024-03-21 18:30:17,980 [main] INFO  com.stamp.shop.ShopApplication - Starting ShopApplication using Java 21.0.2 with PID 6280 (/home/bohdan/Documents/0_Java/shop/target/classes started by bohdan in /home/bohdan/Documents/0_Java/shop)
+2024-03-21 18:30:17,992 [main] INFO  com.stamp.shop.ShopApplication - No active profile set, falling back to 1 default profile: "default"
+2024-03-21 18:30:18,761 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-03-21 18:30:18,787 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 14 ms. Found 0 JPA repository interfaces.
+2024-03-21 18:30:19,468 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-03-21 18:30:19,480 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-03-21 18:30:19,481 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-03-21 18:30:19,482 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.18]
+2024-03-21 18:30:19,539 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-03-21 18:30:19,539 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1495 ms
+2024-03-21 18:30:19,744 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-03-21 18:30:20,229 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@72fbf94d
+2024-03-21 18:30:20,230 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-03-21 18:30:20,394 [main] INFO  liquibase.database - Set default schema name to public
+2024-03-21 18:30:20,641 [main] INFO  liquibase.changelog - Creating database history table with name: public.databasechangelog
+2024-03-21 18:30:20,682 [main] INFO  liquibase.changelog - Reading from public.databasechangelog
+2024-03-21 18:30:20,743 [main] INFO  liquibase.lockservice - Successfully acquired change log lock
+2024-03-21 18:30:20,744 [main] INFO  liquibase.command - Using deploymentId: 1042220744
+2024-03-21 18:30:20,746 [main] INFO  liquibase.changelog - Reading from public.databasechangelog
+2024-03-21 18:30:20,847 [main] INFO  liquibase.changelog - Custom SQL executed
+2024-03-21 18:30:20,851 [main] INFO  liquibase.changelog - ChangeSet db/changelog/v1/changeset-v1.0.sql::raw::includeAll ran successfully in 73ms
+2024-03-21 18:30:20,867 [main] INFO  liquibase.util - UPDATE SUMMARY
+2024-03-21 18:30:20,867 [main] INFO  liquibase.util - Run:                          1
+2024-03-21 18:30:20,867 [main] INFO  liquibase.util - Previously run:               0
+2024-03-21 18:30:20,867 [main] INFO  liquibase.util - Filtered out:                 0
+2024-03-21 18:30:20,867 [main] INFO  liquibase.util - -------------------------------
+2024-03-21 18:30:20,868 [main] INFO  liquibase.util - Total change sets:            1
+2024-03-21 18:30:20,868 [main] INFO  liquibase.util - Update summary generated
+2024-03-21 18:30:20,870 [main] INFO  liquibase.command - Update command completed successfully.
+2024-03-21 18:30:20,877 [main] INFO  liquibase.lockservice - Successfully released change log lock
+2024-03-21 18:30:20,879 [main] INFO  liquibase.command - Command execution complete
+2024-03-21 18:30:21,035 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-03-21 18:30:21,127 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.1.Final
+2024-03-21 18:30:21,175 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-03-21 18:30:21,645 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-03-21 18:30:22,771 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-03-21 18:30:22,775 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-03-21 18:30:23,385 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-03-21 18:30:23,393 [main] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
+2024-03-21 18:30:23,396 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-03-21 18:30:23,397 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-03-21 18:30:23,406 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2024-03-21 18:30:23,420 [main] INFO  o.s.b.a.l.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2024-03-21 18:30:23,444 [main] ERROR o.s.b.d.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8080 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
+
+2024-03-21 18:31:17,334 [main] INFO  com.stamp.shop.ShopApplication - Starting ShopApplication using Java 21.0.2 with PID 6474 (/home/bohdan/Documents/0_Java/shop/target/classes started by bohdan in /home/bohdan/Documents/0_Java/shop)
+2024-03-21 18:31:17,344 [main] INFO  com.stamp.shop.ShopApplication - No active profile set, falling back to 1 default profile: "default"
+2024-03-21 18:31:18,709 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-03-21 18:31:18,765 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 43 ms. Found 0 JPA repository interfaces.
+2024-03-21 18:31:19,901 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8081 (http)
+2024-03-21 18:31:19,912 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+2024-03-21 18:31:19,914 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-03-21 18:31:19,914 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.18]
+2024-03-21 18:31:19,969 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-03-21 18:31:19,970 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2536 ms
+2024-03-21 18:31:20,152 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-03-21 18:31:20,694 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@26d5a317
+2024-03-21 18:31:20,696 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-03-21 18:31:20,865 [main] INFO  liquibase.database - Set default schema name to public
+2024-03-21 18:31:21,090 [main] INFO  liquibase.changelog - Creating database history table with name: public.databasechangelog
+2024-03-21 18:31:21,137 [main] INFO  liquibase.changelog - Reading from public.databasechangelog
+2024-03-21 18:31:21,202 [main] INFO  liquibase.lockservice - Successfully acquired change log lock
+2024-03-21 18:31:21,204 [main] INFO  liquibase.command - Using deploymentId: 1042281204
+2024-03-21 18:31:21,206 [main] INFO  liquibase.changelog - Reading from public.databasechangelog
+2024-03-21 18:31:21,302 [main] INFO  liquibase.changelog - Custom SQL executed
+2024-03-21 18:31:21,307 [main] INFO  liquibase.changelog - ChangeSet db/changelog/v1/changeset-v1.0.sql::raw::includeAll ran successfully in 71ms
+2024-03-21 18:31:21,322 [main] INFO  liquibase.util - UPDATE SUMMARY
+2024-03-21 18:31:21,322 [main] INFO  liquibase.util - Run:                          1
+2024-03-21 18:31:21,322 [main] INFO  liquibase.util - Previously run:               0
+2024-03-21 18:31:21,322 [main] INFO  liquibase.util - Filtered out:                 0
+2024-03-21 18:31:21,322 [main] INFO  liquibase.util - -------------------------------
+2024-03-21 18:31:21,322 [main] INFO  liquibase.util - Total change sets:            1
+2024-03-21 18:31:21,322 [main] INFO  liquibase.util - Update summary generated
+2024-03-21 18:31:21,324 [main] INFO  liquibase.command - Update command completed successfully.
+2024-03-21 18:31:21,330 [main] INFO  liquibase.lockservice - Successfully released change log lock
+2024-03-21 18:31:21,331 [main] INFO  liquibase.command - Command execution complete
+2024-03-21 18:31:21,453 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-03-21 18:31:21,547 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.1.Final
+2024-03-21 18:31:21,603 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-03-21 18:31:22,063 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-03-21 18:31:23,148 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-03-21 18:31:23,152 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-03-21 18:31:23,652 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
+2024-03-21 18:31:23,668 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8081 (http) with context path ''
+2024-03-21 18:31:23,678 [main] INFO  com.stamp.shop.ShopApplication - Started ShopApplication in 7.296 seconds (process running for 10.661)
+2024-03-21 18:32:56,598 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-03-21 18:32:56,601 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-03-21 18:32:56,622 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2024-03-21 18:47:34,562 [main] INFO  com.stamp.shop.ShopApplication - Starting ShopApplication using Java 21.0.2 with PID 7823 (/home/bohdan/Documents/0_Java/shop/target/classes started by bohdan in /home/bohdan/Documents/0_Java/shop)
+2024-03-21 18:47:34,567 [main] INFO  com.stamp.shop.ShopApplication - No active profile set, falling back to 1 default profile: "default"
+2024-03-21 18:47:35,329 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-03-21 18:47:35,355 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 14 ms. Found 0 JPA repository interfaces.
+2024-03-21 18:47:36,034 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8081 (http)
+2024-03-21 18:47:36,044 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+2024-03-21 18:47:36,046 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-03-21 18:47:36,047 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.18]
+2024-03-21 18:47:36,113 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-03-21 18:47:36,113 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1482 ms
+2024-03-21 18:47:36,294 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-03-21 18:47:36,778 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@7ca492d9
+2024-03-21 18:47:36,780 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-03-21 18:47:36,939 [main] INFO  liquibase.database - Set default schema name to public
+2024-03-21 18:47:37,208 [main] INFO  liquibase.changelog - Reading from public.databasechangelog
+2024-03-21 18:47:37,237 [main] INFO  liquibase.changelog - Reading from public.databasechangelog
+2024-03-21 18:47:37,271 [main] INFO  liquibase.util - UPDATE SUMMARY
+2024-03-21 18:47:37,271 [main] INFO  liquibase.util - Run:                          0
+2024-03-21 18:47:37,271 [main] INFO  liquibase.util - Previously run:               1
+2024-03-21 18:47:37,271 [main] INFO  liquibase.util - Filtered out:                 0
+2024-03-21 18:47:37,272 [main] INFO  liquibase.util - -------------------------------
+2024-03-21 18:47:37,272 [main] INFO  liquibase.util - Total change sets:            1
+2024-03-21 18:47:37,272 [main] INFO  liquibase.util - Update summary generated
+2024-03-21 18:47:37,297 [main] INFO  liquibase.lockservice - Successfully released change log lock
+2024-03-21 18:47:37,299 [main] INFO  liquibase.command - Command execution complete
+2024-03-21 18:47:37,423 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-03-21 18:47:37,513 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.1.Final
+2024-03-21 18:47:37,562 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-03-21 18:47:38,027 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-03-21 18:47:39,170 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-03-21 18:47:39,173 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-03-21 18:47:39,684 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
+2024-03-21 18:47:39,699 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8081 (http) with context path ''
+2024-03-21 18:47:39,709 [main] INFO  com.stamp.shop.ShopApplication - Started ShopApplication in 5.597 seconds (process running for 6.749)
+2024-03-21 18:47:41,714 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-03-21 18:47:41,715 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-03-21 18:47:41,727 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2024-03-22 16:34:38,657 [main] INFO  com.stamp.shop.ShopApplication - Starting ShopApplication using Java 21.0.2 with PID 15559 (/home/bohdan/Documents/0_Java/shop/target/classes started by bohdan in /home/bohdan/Documents/0_Java/shop)
+2024-03-22 16:34:38,661 [main] INFO  com.stamp.shop.ShopApplication - No active profile set, falling back to 1 default profile: "default"
+2024-03-22 16:34:39,400 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-03-22 16:34:39,426 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 14 ms. Found 0 JPA repository interfaces.
+2024-03-22 16:34:40,139 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8081 (http)
+2024-03-22 16:34:40,160 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+2024-03-22 16:34:40,162 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-03-22 16:34:40,162 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.18]
+2024-03-22 16:34:40,217 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-03-22 16:34:40,218 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1496 ms
+2024-03-22 16:34:40,398 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-03-22 16:34:40,858 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@4e4162bc
+2024-03-22 16:34:40,860 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-03-22 16:34:41,025 [main] INFO  liquibase.database - Set default schema name to public
+2024-03-22 16:34:41,203 [main] INFO  liquibase.command - Command execution complete
+2024-03-22 16:34:41,205 [main] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: liquibase.exception.ChangeLogParseException: Error parsing db/changelog/db-changelog-master.yaml : The file db/changelog/v1/changeset-v1.0.sql was not found in the configured search path:
+    - Spring classpath
+More locations can be added with the 'searchPath' parameter.
+2024-03-22 16:34:41,205 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-03-22 16:34:41,223 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2024-03-22 16:34:41,225 [main] INFO  o.a.catalina.core.StandardService - Stopping service [Tomcat]
+2024-03-22 16:34:41,244 [main] INFO  o.s.b.a.l.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2024-03-22 16:34:41,262 [main] ERROR o.s.boot.SpringApplication - Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: liquibase.exception.ChangeLogParseException: Error parsing db/changelog/db-changelog-master.yaml : The file db/changelog/v1/changeset-v1.0.sql was not found in the configured search path:
+    - Spring classpath
+More locations can be added with the 'searchPath' parameter.
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1773)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:599)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:521)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:325)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:323)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:312)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1231)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:949)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:624)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:334)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343)
+	at com.stamp.shop.ShopApplication.main(ShopApplication.java:11)
+Caused by: liquibase.exception.CommandExecutionException: liquibase.exception.ChangeLogParseException: Error parsing db/changelog/db-changelog-master.yaml : The file db/changelog/v1/changeset-v1.0.sql was not found in the configured search path:
+    - Spring classpath
+More locations can be added with the 'searchPath' parameter.
+	at liquibase.command.CommandScope.execute(CommandScope.java:237)
+	at liquibase.Liquibase.lambda$update$0(Liquibase.java:222)
+	at liquibase.Scope.lambda$child$0(Scope.java:184)
+	at liquibase.Scope.child(Scope.java:193)
+	at liquibase.Scope.child(Scope.java:183)
+	at liquibase.Scope.child(Scope.java:162)
+	at liquibase.Liquibase.runInScope(Liquibase.java:1371)
+	at liquibase.Liquibase.update(Liquibase.java:211)
+	at liquibase.Liquibase.update(Liquibase.java:193)
+	at liquibase.integration.spring.SpringLiquibase.performUpdate(SpringLiquibase.java:331)
+	at liquibase.integration.spring.SpringLiquibase.afterPropertiesSet(SpringLiquibase.java:286)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1820)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1769)
+	... 18 common frames omitted
+Caused by: liquibase.exception.ChangeLogParseException: Error parsing db/changelog/db-changelog-master.yaml : The file db/changelog/v1/changeset-v1.0.sql was not found in the configured search path:
+    - Spring classpath
+More locations can be added with the 'searchPath' parameter.
+	at liquibase.parser.core.yaml.YamlChangeLogParser.parse(YamlChangeLogParser.java:94)
+	at liquibase.command.core.helpers.DatabaseChangelogCommandStep.lambda$getDatabaseChangeLog$0(DatabaseChangelogCommandStep.java:129)
+	at liquibase.Scope.child(Scope.java:193)
+	at liquibase.Scope.child(Scope.java:169)
+	at liquibase.command.core.helpers.DatabaseChangelogCommandStep.getDatabaseChangeLog(DatabaseChangelogCommandStep.java:128)
+	at liquibase.command.core.helpers.DatabaseChangelogCommandStep.run(DatabaseChangelogCommandStep.java:87)
+	at liquibase.command.CommandScope.execute(CommandScope.java:214)
+	... 30 common frames omitted
+Caused by: liquibase.exception.SetupException: The file db/changelog/v1/changeset-v1.0.sql was not found in the configured search path:
+    - Spring classpath
+More locations can be added with the 'searchPath' parameter.
+	at liquibase.changelog.DatabaseChangeLog.handleChildNode(DatabaseChangeLog.java:462)
+	at liquibase.changelog.DatabaseChangeLog.load(DatabaseChangeLog.java:385)
+	at liquibase.parser.core.yaml.YamlChangeLogParser.parse(YamlChangeLogParser.java:88)
+	... 36 common frames omitted
+Caused by: liquibase.exception.ChangeLogParseException: The file db/changelog/v1/changeset-v1.0.sql was not found in the configured search path:
+    - Spring classpath
+More locations can be added with the 'searchPath' parameter.
+	at liquibase.changelog.DatabaseChangeLog.include(DatabaseChangeLog.java:936)
+	at liquibase.changelog.DatabaseChangeLog.handleChildNode(DatabaseChangeLog.java:452)
+	... 38 common frames omitted
+2024-03-22 16:36:31,967 [main] INFO  com.stamp.shop.ShopApplication - Starting ShopApplication using Java 21.0.2 with PID 15826 (/home/bohdan/Documents/0_Java/shop/target/classes started by bohdan in /home/bohdan/Documents/0_Java/shop)
+2024-03-22 16:36:31,971 [main] INFO  com.stamp.shop.ShopApplication - No active profile set, falling back to 1 default profile: "default"
+2024-03-22 16:36:32,710 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-03-22 16:36:32,736 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 18 ms. Found 0 JPA repository interfaces.
+2024-03-22 16:36:33,315 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8081 (http)
+2024-03-22 16:36:33,336 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+2024-03-22 16:36:33,337 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-03-22 16:36:33,337 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.18]
+2024-03-22 16:36:33,379 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-03-22 16:36:33,380 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1327 ms
+2024-03-22 16:36:33,508 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-03-22 16:36:33,835 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@14fc9bd
+2024-03-22 16:36:33,836 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-03-22 16:36:33,984 [main] INFO  liquibase.database - Set default schema name to public
+2024-03-22 16:36:34,204 [main] INFO  liquibase.changelog - Creating database history table with name: public.databasechangelog
+2024-03-22 16:36:34,271 [main] INFO  liquibase.changelog - Reading from public.databasechangelog
+2024-03-22 16:36:34,333 [main] INFO  liquibase.lockservice - Successfully acquired change log lock
+2024-03-22 16:36:34,334 [main] INFO  liquibase.command - Using deploymentId: 1121794334
+2024-03-22 16:36:34,336 [main] INFO  liquibase.changelog - Reading from public.databasechangelog
+2024-03-22 16:36:34,392 [main] ERROR liquibase.changelog - ChangeSet db/changelog/product_details/v1.0.0-create-db-product_details.sql::1711121584674-1::bohdan_taran encountered an exception.
+2024-03-22 16:36:34,395 [main] INFO  liquibase.command - Update command encountered an exception.
+2024-03-22 16:36:34,402 [main] INFO  liquibase.lockservice - Successfully released change log lock
+2024-03-22 16:36:34,403 [main] INFO  liquibase.command - Command execution complete
+2024-03-22 16:36:34,405 [main] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: liquibase.exception.LiquibaseException: liquibase.exception.MigrationFailedException: Migration failed for changeset db/changelog/product_details/v1.0.0-create-db-product_details.sql::1711121584674-1::bohdan_taran:
+     Reason: liquibase.exception.DatabaseException: ERROR: relation "products" does not exist [Failed SQL: (0) CREATE TABLE IF NOT EXISTS product_details (
+   id BIGSERIAL PRIMARY KEY REFERENCES products (id),
+   year_of_issue INTEGER NOT NULL,
+   country_of_issue TEXT NOT NULL,
+   series TEXT NOT NULL,
+   category_id INTEGER NOT NULL,
+
+   CONSTRAINT category_id_fk FOREIGN KEY (category_id) REFERENCES categories (id)
+)]
+2024-03-22 16:36:34,405 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-03-22 16:36:34,414 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2024-03-22 16:36:34,417 [main] INFO  o.a.catalina.core.StandardService - Stopping service [Tomcat]
+2024-03-22 16:36:34,427 [main] INFO  o.s.b.a.l.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2024-03-22 16:36:34,443 [main] ERROR o.s.boot.SpringApplication - Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: liquibase.exception.LiquibaseException: liquibase.exception.MigrationFailedException: Migration failed for changeset db/changelog/product_details/v1.0.0-create-db-product_details.sql::1711121584674-1::bohdan_taran:
+     Reason: liquibase.exception.DatabaseException: ERROR: relation "products" does not exist [Failed SQL: (0) CREATE TABLE IF NOT EXISTS product_details (
+   id BIGSERIAL PRIMARY KEY REFERENCES products (id),
+   year_of_issue INTEGER NOT NULL,
+   country_of_issue TEXT NOT NULL,
+   series TEXT NOT NULL,
+   category_id INTEGER NOT NULL,
+
+   CONSTRAINT category_id_fk FOREIGN KEY (category_id) REFERENCES categories (id)
+)]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1773)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:599)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:521)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:325)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:323)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:312)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1231)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:949)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:624)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:334)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343)
+	at com.stamp.shop.ShopApplication.main(ShopApplication.java:11)
+Caused by: liquibase.exception.CommandExecutionException: liquibase.exception.LiquibaseException: liquibase.exception.MigrationFailedException: Migration failed for changeset db/changelog/product_details/v1.0.0-create-db-product_details.sql::1711121584674-1::bohdan_taran:
+     Reason: liquibase.exception.DatabaseException: ERROR: relation "products" does not exist [Failed SQL: (0) CREATE TABLE IF NOT EXISTS product_details (
+   id BIGSERIAL PRIMARY KEY REFERENCES products (id),
+   year_of_issue INTEGER NOT NULL,
+   country_of_issue TEXT NOT NULL,
+   series TEXT NOT NULL,
+   category_id INTEGER NOT NULL,
+
+   CONSTRAINT category_id_fk FOREIGN KEY (category_id) REFERENCES categories (id)
+)]
+	at liquibase.command.CommandScope.execute(CommandScope.java:237)
+	at liquibase.Liquibase.lambda$update$0(Liquibase.java:222)
+	at liquibase.Scope.lambda$child$0(Scope.java:184)
+	at liquibase.Scope.child(Scope.java:193)
+	at liquibase.Scope.child(Scope.java:183)
+	at liquibase.Scope.child(Scope.java:162)
+	at liquibase.Liquibase.runInScope(Liquibase.java:1371)
+	at liquibase.Liquibase.update(Liquibase.java:211)
+	at liquibase.Liquibase.update(Liquibase.java:193)
+	at liquibase.integration.spring.SpringLiquibase.performUpdate(SpringLiquibase.java:331)
+	at liquibase.integration.spring.SpringLiquibase.afterPropertiesSet(SpringLiquibase.java:286)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1820)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1769)
+	... 18 common frames omitted
+Caused by: liquibase.exception.LiquibaseException: liquibase.exception.MigrationFailedException: Migration failed for changeset db/changelog/product_details/v1.0.0-create-db-product_details.sql::1711121584674-1::bohdan_taran:
+     Reason: liquibase.exception.DatabaseException: ERROR: relation "products" does not exist [Failed SQL: (0) CREATE TABLE IF NOT EXISTS product_details (
+   id BIGSERIAL PRIMARY KEY REFERENCES products (id),
+   year_of_issue INTEGER NOT NULL,
+   country_of_issue TEXT NOT NULL,
+   series TEXT NOT NULL,
+   category_id INTEGER NOT NULL,
+
+   CONSTRAINT category_id_fk FOREIGN KEY (category_id) REFERENCES categories (id)
+)]
+	at liquibase.changelog.ChangeLogIterator.run(ChangeLogIterator.java:122)
+	at liquibase.command.core.AbstractUpdateCommandStep.lambda$doRun$1(AbstractUpdateCommandStep.java:105)
+	at liquibase.Scope.lambda$child$0(Scope.java:184)
+	at liquibase.Scope.child(Scope.java:193)
+	at liquibase.Scope.child(Scope.java:183)
+	at liquibase.Scope.child(Scope.java:162)
+	at liquibase.command.core.AbstractUpdateCommandStep.doRun(AbstractUpdateCommandStep.java:104)
+	at liquibase.command.core.AbstractUpdateCommandStep.lambda$run$0(AbstractUpdateCommandStep.java:63)
+	at liquibase.Scope.lambda$child$0(Scope.java:184)
+	at liquibase.Scope.child(Scope.java:193)
+	at liquibase.Scope.child(Scope.java:183)
+	at liquibase.Scope.child(Scope.java:162)
+	at liquibase.command.core.AbstractUpdateCommandStep.run(AbstractUpdateCommandStep.java:62)
+	at liquibase.command.core.UpdateCommandStep.run(UpdateCommandStep.java:106)
+	at liquibase.command.CommandScope.execute(CommandScope.java:214)
+	... 30 common frames omitted
+Caused by: liquibase.exception.MigrationFailedException: Migration failed for changeset db/changelog/product_details/v1.0.0-create-db-product_details.sql::1711121584674-1::bohdan_taran:
+     Reason: liquibase.exception.DatabaseException: ERROR: relation "products" does not exist [Failed SQL: (0) CREATE TABLE IF NOT EXISTS product_details (
+   id BIGSERIAL PRIMARY KEY REFERENCES products (id),
+   year_of_issue INTEGER NOT NULL,
+   country_of_issue TEXT NOT NULL,
+   series TEXT NOT NULL,
+   category_id INTEGER NOT NULL,
+
+   CONSTRAINT category_id_fk FOREIGN KEY (category_id) REFERENCES categories (id)
+)]
+	at liquibase.changelog.ChangeSet.execute(ChangeSet.java:785)
+	at liquibase.changelog.visitor.UpdateVisitor.executeAcceptedChange(UpdateVisitor.java:118)
+	at liquibase.changelog.visitor.UpdateVisitor.visit(UpdateVisitor.java:68)
+	at liquibase.changelog.ChangeLogIterator$2.lambda$run$0(ChangeLogIterator.java:110)
+	at liquibase.Scope.lambda$child$0(Scope.java:184)
+	at liquibase.Scope.child(Scope.java:193)
+	at liquibase.Scope.child(Scope.java:183)
+	at liquibase.Scope.child(Scope.java:162)
+	at liquibase.Scope.child(Scope.java:250)
+	at liquibase.changelog.ChangeLogIterator$2.run(ChangeLogIterator.java:100)
+	at liquibase.Scope.lambda$child$0(Scope.java:184)
+	at liquibase.Scope.child(Scope.java:193)
+	at liquibase.Scope.child(Scope.java:183)
+	at liquibase.Scope.child(Scope.java:162)
+	at liquibase.Scope.child(Scope.java:250)
+	at liquibase.Scope.child(Scope.java:254)
+	at liquibase.changelog.ChangeLogIterator.run(ChangeLogIterator.java:74)
+	... 44 common frames omitted
+Caused by: liquibase.exception.DatabaseException: ERROR: relation "products" does not exist [Failed SQL: (0) CREATE TABLE IF NOT EXISTS product_details (
+   id BIGSERIAL PRIMARY KEY REFERENCES products (id),
+   year_of_issue INTEGER NOT NULL,
+   country_of_issue TEXT NOT NULL,
+   series TEXT NOT NULL,
+   category_id INTEGER NOT NULL,
+
+   CONSTRAINT category_id_fk FOREIGN KEY (category_id) REFERENCES categories (id)
+)]
+	at liquibase.executor.jvm.JdbcExecutor$ExecuteStatementCallback.doInStatement(JdbcExecutor.java:468)
+	at liquibase.executor.jvm.JdbcExecutor.execute(JdbcExecutor.java:77)
+	at liquibase.executor.jvm.JdbcExecutor.execute(JdbcExecutor.java:177)
+	at liquibase.database.AbstractJdbcDatabase.execute(AbstractJdbcDatabase.java:1291)
+	at liquibase.database.AbstractJdbcDatabase.executeStatements(AbstractJdbcDatabase.java:1273)
+	at liquibase.changelog.ChangeSet.execute(ChangeSet.java:744)
+	... 60 common frames omitted
+Caused by: org.postgresql.util.PSQLException: ERROR: relation "products" does not exist
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:498)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:415)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:335)
+	at org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:321)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:297)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:292)
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94)
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
+	at liquibase.executor.jvm.JdbcExecutor$ExecuteStatementCallback.doInStatement(JdbcExecutor.java:462)
+	... 65 common frames omitted
+2024-03-22 16:42:12,586 [main] INFO  com.stamp.shop.ShopApplication - Starting ShopApplication using Java 21.0.2 with PID 16596 (/home/bohdan/Documents/0_Java/shop/target/classes started by bohdan in /home/bohdan/Documents/0_Java/shop)
+2024-03-22 16:42:12,589 [main] INFO  com.stamp.shop.ShopApplication - No active profile set, falling back to 1 default profile: "default"
+2024-03-22 16:42:13,243 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-03-22 16:42:13,263 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 12 ms. Found 0 JPA repository interfaces.
+2024-03-22 16:42:13,869 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8081 (http)
+2024-03-22 16:42:13,879 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+2024-03-22 16:42:13,881 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-03-22 16:42:13,881 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.18]
+2024-03-22 16:42:13,927 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-03-22 16:42:13,927 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1275 ms
+2024-03-22 16:42:14,079 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-03-22 16:42:14,426 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@3dbd7107
+2024-03-22 16:42:14,428 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-03-22 16:42:14,577 [main] INFO  liquibase.database - Set default schema name to public
+2024-03-22 16:42:14,814 [main] INFO  liquibase.changelog - Reading from public.databasechangelog
+2024-03-22 16:42:14,867 [main] INFO  liquibase.lockservice - Successfully acquired change log lock
+2024-03-22 16:42:14,869 [main] INFO  liquibase.command - Using deploymentId: 1122134869
+2024-03-22 16:42:14,871 [main] INFO  liquibase.changelog - Reading from public.databasechangelog
+2024-03-22 16:42:14,932 [main] ERROR liquibase.changelog - ChangeSet db/changelog/product_details/v1.0.0-create-db-product_details.sql::1711121584674-1::bohdan_taran encountered an exception.
+2024-03-22 16:42:14,935 [main] INFO  liquibase.command - Update command encountered an exception.
+2024-03-22 16:42:14,941 [main] INFO  liquibase.lockservice - Successfully released change log lock
+2024-03-22 16:42:14,942 [main] INFO  liquibase.command - Command execution complete
+2024-03-22 16:42:14,944 [main] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: liquibase.exception.LiquibaseException: liquibase.exception.MigrationFailedException: Migration failed for changeset db/changelog/product_details/v1.0.0-create-db-product_details.sql::1711121584674-1::bohdan_taran:
+     Reason: liquibase.exception.DatabaseException: ERROR: relation "products" does not exist [Failed SQL: (0) CREATE TABLE IF NOT EXISTS product_details (
+   id BIGSERIAL PRIMARY KEY REFERENCES products (id),
+   year_of_issue INTEGER NOT NULL,
+   country_of_issue TEXT NOT NULL,
+   series TEXT NOT NULL,
+   category_id INTEGER NOT NULL,
+
+   CONSTRAINT category_id_fk FOREIGN KEY (category_id) REFERENCES categories (id)
+)]
+2024-03-22 16:42:14,945 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-03-22 16:42:14,978 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2024-03-22 16:42:14,981 [main] INFO  o.a.catalina.core.StandardService - Stopping service [Tomcat]
+2024-03-22 16:42:14,994 [main] INFO  o.s.b.a.l.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2024-03-22 16:42:15,014 [main] ERROR o.s.boot.SpringApplication - Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: liquibase.exception.LiquibaseException: liquibase.exception.MigrationFailedException: Migration failed for changeset db/changelog/product_details/v1.0.0-create-db-product_details.sql::1711121584674-1::bohdan_taran:
+     Reason: liquibase.exception.DatabaseException: ERROR: relation "products" does not exist [Failed SQL: (0) CREATE TABLE IF NOT EXISTS product_details (
+   id BIGSERIAL PRIMARY KEY REFERENCES products (id),
+   year_of_issue INTEGER NOT NULL,
+   country_of_issue TEXT NOT NULL,
+   series TEXT NOT NULL,
+   category_id INTEGER NOT NULL,
+
+   CONSTRAINT category_id_fk FOREIGN KEY (category_id) REFERENCES categories (id)
+)]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1773)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:599)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:521)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:325)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:323)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:312)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1231)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:949)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:624)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:334)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343)
+	at com.stamp.shop.ShopApplication.main(ShopApplication.java:11)
+Caused by: liquibase.exception.CommandExecutionException: liquibase.exception.LiquibaseException: liquibase.exception.MigrationFailedException: Migration failed for changeset db/changelog/product_details/v1.0.0-create-db-product_details.sql::1711121584674-1::bohdan_taran:
+     Reason: liquibase.exception.DatabaseException: ERROR: relation "products" does not exist [Failed SQL: (0) CREATE TABLE IF NOT EXISTS product_details (
+   id BIGSERIAL PRIMARY KEY REFERENCES products (id),
+   year_of_issue INTEGER NOT NULL,
+   country_of_issue TEXT NOT NULL,
+   series TEXT NOT NULL,
+   category_id INTEGER NOT NULL,
+
+   CONSTRAINT category_id_fk FOREIGN KEY (category_id) REFERENCES categories (id)
+)]
+	at liquibase.command.CommandScope.execute(CommandScope.java:237)
+	at liquibase.Liquibase.lambda$update$0(Liquibase.java:222)
+	at liquibase.Scope.lambda$child$0(Scope.java:184)
+	at liquibase.Scope.child(Scope.java:193)
+	at liquibase.Scope.child(Scope.java:183)
+	at liquibase.Scope.child(Scope.java:162)
+	at liquibase.Liquibase.runInScope(Liquibase.java:1371)
+	at liquibase.Liquibase.update(Liquibase.java:211)
+	at liquibase.Liquibase.update(Liquibase.java:193)
+	at liquibase.integration.spring.SpringLiquibase.performUpdate(SpringLiquibase.java:331)
+	at liquibase.integration.spring.SpringLiquibase.afterPropertiesSet(SpringLiquibase.java:286)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1820)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1769)
+	... 18 common frames omitted
+Caused by: liquibase.exception.LiquibaseException: liquibase.exception.MigrationFailedException: Migration failed for changeset db/changelog/product_details/v1.0.0-create-db-product_details.sql::1711121584674-1::bohdan_taran:
+     Reason: liquibase.exception.DatabaseException: ERROR: relation "products" does not exist [Failed SQL: (0) CREATE TABLE IF NOT EXISTS product_details (
+   id BIGSERIAL PRIMARY KEY REFERENCES products (id),
+   year_of_issue INTEGER NOT NULL,
+   country_of_issue TEXT NOT NULL,
+   series TEXT NOT NULL,
+   category_id INTEGER NOT NULL,
+
+   CONSTRAINT category_id_fk FOREIGN KEY (category_id) REFERENCES categories (id)
+)]
+	at liquibase.changelog.ChangeLogIterator.run(ChangeLogIterator.java:122)
+	at liquibase.command.core.AbstractUpdateCommandStep.lambda$doRun$1(AbstractUpdateCommandStep.java:105)
+	at liquibase.Scope.lambda$child$0(Scope.java:184)
+	at liquibase.Scope.child(Scope.java:193)
+	at liquibase.Scope.child(Scope.java:183)
+	at liquibase.Scope.child(Scope.java:162)
+	at liquibase.command.core.AbstractUpdateCommandStep.doRun(AbstractUpdateCommandStep.java:104)
+	at liquibase.command.core.AbstractUpdateCommandStep.lambda$run$0(AbstractUpdateCommandStep.java:63)
+	at liquibase.Scope.lambda$child$0(Scope.java:184)
+	at liquibase.Scope.child(Scope.java:193)
+	at liquibase.Scope.child(Scope.java:183)
+	at liquibase.Scope.child(Scope.java:162)
+	at liquibase.command.core.AbstractUpdateCommandStep.run(AbstractUpdateCommandStep.java:62)
+	at liquibase.command.core.UpdateCommandStep.run(UpdateCommandStep.java:106)
+	at liquibase.command.CommandScope.execute(CommandScope.java:214)
+	... 30 common frames omitted
+Caused by: liquibase.exception.MigrationFailedException: Migration failed for changeset db/changelog/product_details/v1.0.0-create-db-product_details.sql::1711121584674-1::bohdan_taran:
+     Reason: liquibase.exception.DatabaseException: ERROR: relation "products" does not exist [Failed SQL: (0) CREATE TABLE IF NOT EXISTS product_details (
+   id BIGSERIAL PRIMARY KEY REFERENCES products (id),
+   year_of_issue INTEGER NOT NULL,
+   country_of_issue TEXT NOT NULL,
+   series TEXT NOT NULL,
+   category_id INTEGER NOT NULL,
+
+   CONSTRAINT category_id_fk FOREIGN KEY (category_id) REFERENCES categories (id)
+)]
+	at liquibase.changelog.ChangeSet.execute(ChangeSet.java:785)
+	at liquibase.changelog.visitor.UpdateVisitor.executeAcceptedChange(UpdateVisitor.java:118)
+	at liquibase.changelog.visitor.UpdateVisitor.visit(UpdateVisitor.java:68)
+	at liquibase.changelog.ChangeLogIterator$2.lambda$run$0(ChangeLogIterator.java:110)
+	at liquibase.Scope.lambda$child$0(Scope.java:184)
+	at liquibase.Scope.child(Scope.java:193)
+	at liquibase.Scope.child(Scope.java:183)
+	at liquibase.Scope.child(Scope.java:162)
+	at liquibase.Scope.child(Scope.java:250)
+	at liquibase.changelog.ChangeLogIterator$2.run(ChangeLogIterator.java:100)
+	at liquibase.Scope.lambda$child$0(Scope.java:184)
+	at liquibase.Scope.child(Scope.java:193)
+	at liquibase.Scope.child(Scope.java:183)
+	at liquibase.Scope.child(Scope.java:162)
+	at liquibase.Scope.child(Scope.java:250)
+	at liquibase.Scope.child(Scope.java:254)
+	at liquibase.changelog.ChangeLogIterator.run(ChangeLogIterator.java:74)
+	... 44 common frames omitted
+Caused by: liquibase.exception.DatabaseException: ERROR: relation "products" does not exist [Failed SQL: (0) CREATE TABLE IF NOT EXISTS product_details (
+   id BIGSERIAL PRIMARY KEY REFERENCES products (id),
+   year_of_issue INTEGER NOT NULL,
+   country_of_issue TEXT NOT NULL,
+   series TEXT NOT NULL,
+   category_id INTEGER NOT NULL,
+
+   CONSTRAINT category_id_fk FOREIGN KEY (category_id) REFERENCES categories (id)
+)]
+	at liquibase.executor.jvm.JdbcExecutor$ExecuteStatementCallback.doInStatement(JdbcExecutor.java:468)
+	at liquibase.executor.jvm.JdbcExecutor.execute(JdbcExecutor.java:77)
+	at liquibase.executor.jvm.JdbcExecutor.execute(JdbcExecutor.java:177)
+	at liquibase.database.AbstractJdbcDatabase.execute(AbstractJdbcDatabase.java:1291)
+	at liquibase.database.AbstractJdbcDatabase.executeStatements(AbstractJdbcDatabase.java:1273)
+	at liquibase.changelog.ChangeSet.execute(ChangeSet.java:744)
+	... 60 common frames omitted
+Caused by: org.postgresql.util.PSQLException: ERROR: relation "products" does not exist
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:498)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:415)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:335)
+	at org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:321)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:297)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:292)
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94)
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
+	at liquibase.executor.jvm.JdbcExecutor$ExecuteStatementCallback.doInStatement(JdbcExecutor.java:462)
+	... 65 common frames omitted
+2024-03-22 16:42:30,829 [main] INFO  com.stamp.shop.ShopApplication - Starting ShopApplication using Java 21.0.2 with PID 16722 (/home/bohdan/Documents/0_Java/shop/target/classes started by bohdan in /home/bohdan/Documents/0_Java/shop)
+2024-03-22 16:42:30,834 [main] INFO  com.stamp.shop.ShopApplication - No active profile set, falling back to 1 default profile: "default"
+2024-03-22 16:42:31,454 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-03-22 16:42:31,474 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 12 ms. Found 0 JPA repository interfaces.
+2024-03-22 16:42:32,076 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8081 (http)
+2024-03-22 16:42:32,087 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+2024-03-22 16:42:32,088 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-03-22 16:42:32,089 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.18]
+2024-03-22 16:42:32,144 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-03-22 16:42:32,145 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1256 ms
+2024-03-22 16:42:32,293 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-03-22 16:42:32,634 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@43935e9c
+2024-03-22 16:42:32,635 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-03-22 16:42:32,784 [main] INFO  liquibase.database - Set default schema name to public
+2024-03-22 16:42:33,025 [main] INFO  liquibase.changelog - Reading from public.databasechangelog
+2024-03-22 16:42:33,077 [main] INFO  liquibase.lockservice - Successfully acquired change log lock
+2024-03-22 16:42:33,078 [main] INFO  liquibase.command - Using deploymentId: 1122153078
+2024-03-22 16:42:33,080 [main] INFO  liquibase.changelog - Reading from public.databasechangelog
+2024-03-22 16:42:33,141 [main] INFO  liquibase.changelog - Custom SQL executed
+2024-03-22 16:42:33,145 [main] INFO  liquibase.changelog - ChangeSet db/changelog/products/v1.0.0-create-db-products.sql::1711121614139-1::bohdan_taran ran successfully in 40ms
+2024-03-22 16:42:33,179 [main] ERROR liquibase.changelog - ChangeSet db/changelog/product_details/v1.0.0-create-db-product_details.sql::1711121584674-1::bohdan_taran encountered an exception.
+2024-03-22 16:42:33,183 [main] INFO  liquibase.command - Update command encountered an exception.
+2024-03-22 16:42:33,190 [main] INFO  liquibase.lockservice - Successfully released change log lock
+2024-03-22 16:42:33,191 [main] INFO  liquibase.command - Command execution complete
+2024-03-22 16:42:33,193 [main] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: liquibase.exception.LiquibaseException: liquibase.exception.MigrationFailedException: Migration failed for changeset db/changelog/product_details/v1.0.0-create-db-product_details.sql::1711121584674-1::bohdan_taran:
+     Reason: liquibase.exception.DatabaseException: ERROR: relation "categories" does not exist [Failed SQL: (0) CREATE TABLE IF NOT EXISTS product_details (
+   id BIGSERIAL PRIMARY KEY REFERENCES products (id),
+   year_of_issue INTEGER NOT NULL,
+   country_of_issue TEXT NOT NULL,
+   series TEXT NOT NULL,
+   category_id INTEGER NOT NULL,
+
+   CONSTRAINT category_id_fk FOREIGN KEY (category_id) REFERENCES categories (id)
+)]
+2024-03-22 16:42:33,193 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-03-22 16:42:33,210 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2024-03-22 16:42:33,213 [main] INFO  o.a.catalina.core.StandardService - Stopping service [Tomcat]
+2024-03-22 16:42:33,224 [main] INFO  o.s.b.a.l.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2024-03-22 16:42:33,242 [main] ERROR o.s.boot.SpringApplication - Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: liquibase.exception.LiquibaseException: liquibase.exception.MigrationFailedException: Migration failed for changeset db/changelog/product_details/v1.0.0-create-db-product_details.sql::1711121584674-1::bohdan_taran:
+     Reason: liquibase.exception.DatabaseException: ERROR: relation "categories" does not exist [Failed SQL: (0) CREATE TABLE IF NOT EXISTS product_details (
+   id BIGSERIAL PRIMARY KEY REFERENCES products (id),
+   year_of_issue INTEGER NOT NULL,
+   country_of_issue TEXT NOT NULL,
+   series TEXT NOT NULL,
+   category_id INTEGER NOT NULL,
+
+   CONSTRAINT category_id_fk FOREIGN KEY (category_id) REFERENCES categories (id)
+)]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1773)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:599)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:521)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:325)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:323)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:312)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1231)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:949)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:624)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:334)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343)
+	at com.stamp.shop.ShopApplication.main(ShopApplication.java:11)
+Caused by: liquibase.exception.CommandExecutionException: liquibase.exception.LiquibaseException: liquibase.exception.MigrationFailedException: Migration failed for changeset db/changelog/product_details/v1.0.0-create-db-product_details.sql::1711121584674-1::bohdan_taran:
+     Reason: liquibase.exception.DatabaseException: ERROR: relation "categories" does not exist [Failed SQL: (0) CREATE TABLE IF NOT EXISTS product_details (
+   id BIGSERIAL PRIMARY KEY REFERENCES products (id),
+   year_of_issue INTEGER NOT NULL,
+   country_of_issue TEXT NOT NULL,
+   series TEXT NOT NULL,
+   category_id INTEGER NOT NULL,
+
+   CONSTRAINT category_id_fk FOREIGN KEY (category_id) REFERENCES categories (id)
+)]
+	at liquibase.command.CommandScope.execute(CommandScope.java:237)
+	at liquibase.Liquibase.lambda$update$0(Liquibase.java:222)
+	at liquibase.Scope.lambda$child$0(Scope.java:184)
+	at liquibase.Scope.child(Scope.java:193)
+	at liquibase.Scope.child(Scope.java:183)
+	at liquibase.Scope.child(Scope.java:162)
+	at liquibase.Liquibase.runInScope(Liquibase.java:1371)
+	at liquibase.Liquibase.update(Liquibase.java:211)
+	at liquibase.Liquibase.update(Liquibase.java:193)
+	at liquibase.integration.spring.SpringLiquibase.performUpdate(SpringLiquibase.java:331)
+	at liquibase.integration.spring.SpringLiquibase.afterPropertiesSet(SpringLiquibase.java:286)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1820)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1769)
+	... 18 common frames omitted
+Caused by: liquibase.exception.LiquibaseException: liquibase.exception.MigrationFailedException: Migration failed for changeset db/changelog/product_details/v1.0.0-create-db-product_details.sql::1711121584674-1::bohdan_taran:
+     Reason: liquibase.exception.DatabaseException: ERROR: relation "categories" does not exist [Failed SQL: (0) CREATE TABLE IF NOT EXISTS product_details (
+   id BIGSERIAL PRIMARY KEY REFERENCES products (id),
+   year_of_issue INTEGER NOT NULL,
+   country_of_issue TEXT NOT NULL,
+   series TEXT NOT NULL,
+   category_id INTEGER NOT NULL,
+
+   CONSTRAINT category_id_fk FOREIGN KEY (category_id) REFERENCES categories (id)
+)]
+	at liquibase.changelog.ChangeLogIterator.run(ChangeLogIterator.java:122)
+	at liquibase.command.core.AbstractUpdateCommandStep.lambda$doRun$1(AbstractUpdateCommandStep.java:105)
+	at liquibase.Scope.lambda$child$0(Scope.java:184)
+	at liquibase.Scope.child(Scope.java:193)
+	at liquibase.Scope.child(Scope.java:183)
+	at liquibase.Scope.child(Scope.java:162)
+	at liquibase.command.core.AbstractUpdateCommandStep.doRun(AbstractUpdateCommandStep.java:104)
+	at liquibase.command.core.AbstractUpdateCommandStep.lambda$run$0(AbstractUpdateCommandStep.java:63)
+	at liquibase.Scope.lambda$child$0(Scope.java:184)
+	at liquibase.Scope.child(Scope.java:193)
+	at liquibase.Scope.child(Scope.java:183)
+	at liquibase.Scope.child(Scope.java:162)
+	at liquibase.command.core.AbstractUpdateCommandStep.run(AbstractUpdateCommandStep.java:62)
+	at liquibase.command.core.UpdateCommandStep.run(UpdateCommandStep.java:106)
+	at liquibase.command.CommandScope.execute(CommandScope.java:214)
+	... 30 common frames omitted
+Caused by: liquibase.exception.MigrationFailedException: Migration failed for changeset db/changelog/product_details/v1.0.0-create-db-product_details.sql::1711121584674-1::bohdan_taran:
+     Reason: liquibase.exception.DatabaseException: ERROR: relation "categories" does not exist [Failed SQL: (0) CREATE TABLE IF NOT EXISTS product_details (
+   id BIGSERIAL PRIMARY KEY REFERENCES products (id),
+   year_of_issue INTEGER NOT NULL,
+   country_of_issue TEXT NOT NULL,
+   series TEXT NOT NULL,
+   category_id INTEGER NOT NULL,
+
+   CONSTRAINT category_id_fk FOREIGN KEY (category_id) REFERENCES categories (id)
+)]
+	at liquibase.changelog.ChangeSet.execute(ChangeSet.java:785)
+	at liquibase.changelog.visitor.UpdateVisitor.executeAcceptedChange(UpdateVisitor.java:118)
+	at liquibase.changelog.visitor.UpdateVisitor.visit(UpdateVisitor.java:68)
+	at liquibase.changelog.ChangeLogIterator$2.lambda$run$0(ChangeLogIterator.java:110)
+	at liquibase.Scope.lambda$child$0(Scope.java:184)
+	at liquibase.Scope.child(Scope.java:193)
+	at liquibase.Scope.child(Scope.java:183)
+	at liquibase.Scope.child(Scope.java:162)
+	at liquibase.Scope.child(Scope.java:250)
+	at liquibase.changelog.ChangeLogIterator$2.run(ChangeLogIterator.java:100)
+	at liquibase.Scope.lambda$child$0(Scope.java:184)
+	at liquibase.Scope.child(Scope.java:193)
+	at liquibase.Scope.child(Scope.java:183)
+	at liquibase.Scope.child(Scope.java:162)
+	at liquibase.Scope.child(Scope.java:250)
+	at liquibase.Scope.child(Scope.java:254)
+	at liquibase.changelog.ChangeLogIterator.run(ChangeLogIterator.java:74)
+	... 44 common frames omitted
+Caused by: liquibase.exception.DatabaseException: ERROR: relation "categories" does not exist [Failed SQL: (0) CREATE TABLE IF NOT EXISTS product_details (
+   id BIGSERIAL PRIMARY KEY REFERENCES products (id),
+   year_of_issue INTEGER NOT NULL,
+   country_of_issue TEXT NOT NULL,
+   series TEXT NOT NULL,
+   category_id INTEGER NOT NULL,
+
+   CONSTRAINT category_id_fk FOREIGN KEY (category_id) REFERENCES categories (id)
+)]
+	at liquibase.executor.jvm.JdbcExecutor$ExecuteStatementCallback.doInStatement(JdbcExecutor.java:468)
+	at liquibase.executor.jvm.JdbcExecutor.execute(JdbcExecutor.java:77)
+	at liquibase.executor.jvm.JdbcExecutor.execute(JdbcExecutor.java:177)
+	at liquibase.database.AbstractJdbcDatabase.execute(AbstractJdbcDatabase.java:1291)
+	at liquibase.database.AbstractJdbcDatabase.executeStatements(AbstractJdbcDatabase.java:1273)
+	at liquibase.changelog.ChangeSet.execute(ChangeSet.java:744)
+	... 60 common frames omitted
+Caused by: org.postgresql.util.PSQLException: ERROR: relation "categories" does not exist
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:498)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:415)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:335)
+	at org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:321)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:297)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:292)
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94)
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
+	at liquibase.executor.jvm.JdbcExecutor$ExecuteStatementCallback.doInStatement(JdbcExecutor.java:462)
+	... 65 common frames omitted
+2024-03-22 16:42:49,463 [main] INFO  com.stamp.shop.ShopApplication - Starting ShopApplication using Java 21.0.2 with PID 16838 (/home/bohdan/Documents/0_Java/shop/target/classes started by bohdan in /home/bohdan/Documents/0_Java/shop)
+2024-03-22 16:42:49,466 [main] INFO  com.stamp.shop.ShopApplication - No active profile set, falling back to 1 default profile: "default"
+2024-03-22 16:42:50,053 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-03-22 16:42:50,074 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 13 ms. Found 0 JPA repository interfaces.
+2024-03-22 16:42:50,691 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8081 (http)
+2024-03-22 16:42:50,702 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+2024-03-22 16:42:50,703 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-03-22 16:42:50,704 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.18]
+2024-03-22 16:42:50,750 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-03-22 16:42:50,751 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1234 ms
+2024-03-22 16:42:50,899 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-03-22 16:42:51,243 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@101cf747
+2024-03-22 16:42:51,244 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-03-22 16:42:51,380 [main] INFO  liquibase.database - Set default schema name to public
+2024-03-22 16:42:51,602 [main] INFO  liquibase.changelog - Reading from public.databasechangelog
+2024-03-22 16:42:51,653 [main] INFO  liquibase.lockservice - Successfully acquired change log lock
+2024-03-22 16:42:51,655 [main] INFO  liquibase.command - Using deploymentId: 1122171655
+2024-03-22 16:42:51,657 [main] INFO  liquibase.changelog - Reading from public.databasechangelog
+2024-03-22 16:42:51,705 [main] INFO  liquibase.changelog - Custom SQL executed
+2024-03-22 16:42:51,709 [main] INFO  liquibase.changelog - ChangeSet db/changelog/product_details/v1.0.0-create-db-product_details.sql::1711121584674-1::bohdan_taran ran successfully in 29ms
+2024-03-22 16:42:51,722 [main] INFO  liquibase.util - UPDATE SUMMARY
+2024-03-22 16:42:51,722 [main] INFO  liquibase.util - Run:                          1
+2024-03-22 16:42:51,722 [main] INFO  liquibase.util - Previously run:               1
+2024-03-22 16:42:51,722 [main] INFO  liquibase.util - Filtered out:                 0
+2024-03-22 16:42:51,722 [main] INFO  liquibase.util - -------------------------------
+2024-03-22 16:42:51,722 [main] INFO  liquibase.util - Total change sets:            2
+2024-03-22 16:42:51,722 [main] INFO  liquibase.util - Update summary generated
+2024-03-22 16:42:51,724 [main] INFO  liquibase.command - Update command completed successfully.
+2024-03-22 16:42:51,729 [main] INFO  liquibase.lockservice - Successfully released change log lock
+2024-03-22 16:42:51,730 [main] INFO  liquibase.command - Command execution complete
+2024-03-22 16:42:51,849 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-03-22 16:42:51,935 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.1.Final
+2024-03-22 16:42:51,986 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-03-22 16:42:52,422 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-03-22 16:42:53,474 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-03-22 16:42:53,477 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-03-22 16:42:53,946 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
+2024-03-22 16:42:53,960 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8081 (http) with context path ''
+2024-03-22 16:42:53,969 [main] INFO  com.stamp.shop.ShopApplication - Started ShopApplication in 4.866 seconds (process running for 5.645)
+2024-03-22 16:45:02,051 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-03-22 16:45:02,053 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-03-22 16:45:02,060 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2024-03-22 17:03:28,951 [main] INFO  com.stamp.shop.ShopApplication - Starting ShopApplication using Java 21.0.2 with PID 18131 (/home/bohdan/Documents/0_Java/shop/target/classes started by bohdan in /home/bohdan/Documents/0_Java/shop)
+2024-03-22 17:03:28,954 [main] INFO  com.stamp.shop.ShopApplication - No active profile set, falling back to 1 default profile: "default"
+2024-03-22 17:03:29,623 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-03-22 17:03:29,645 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 13 ms. Found 0 JPA repository interfaces.
+2024-03-22 17:03:30,254 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8081 (http)
+2024-03-22 17:03:30,264 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+2024-03-22 17:03:30,265 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-03-22 17:03:30,266 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.18]
+2024-03-22 17:03:30,332 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-03-22 17:03:30,332 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1323 ms
+2024-03-22 17:03:30,487 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-03-22 17:03:30,853 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@4c319d52
+2024-03-22 17:03:30,855 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-03-22 17:03:31,009 [main] INFO  liquibase.database - Set default schema name to public
+2024-03-22 17:03:31,269 [main] INFO  liquibase.changelog - Reading from public.databasechangelog
+2024-03-22 17:03:31,298 [main] INFO  liquibase.changelog - Reading from public.databasechangelog
+2024-03-22 17:03:31,323 [main] INFO  liquibase.util - UPDATE SUMMARY
+2024-03-22 17:03:31,323 [main] INFO  liquibase.util - Run:                          0
+2024-03-22 17:03:31,323 [main] INFO  liquibase.util - Previously run:               2
+2024-03-22 17:03:31,324 [main] INFO  liquibase.util - Filtered out:                 0
+2024-03-22 17:03:31,324 [main] INFO  liquibase.util - -------------------------------
+2024-03-22 17:03:31,324 [main] INFO  liquibase.util - Total change sets:            2
+2024-03-22 17:03:31,324 [main] INFO  liquibase.util - Update summary generated
+2024-03-22 17:03:31,349 [main] INFO  liquibase.lockservice - Successfully released change log lock
+2024-03-22 17:03:31,351 [main] INFO  liquibase.command - Command execution complete
+2024-03-22 17:03:31,465 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-03-22 17:03:31,544 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.1.Final
+2024-03-22 17:03:31,586 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-03-22 17:03:31,912 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-03-22 17:03:32,837 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-03-22 17:03:32,841 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-03-22 17:03:33,316 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
+2024-03-22 17:03:33,329 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8081 (http) with context path ''
+2024-03-22 17:03:33,338 [main] INFO  com.stamp.shop.ShopApplication - Started ShopApplication in 4.753 seconds (process running for 5.669)
+2024-03-22 17:03:48,072 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-03-22 17:03:48,074 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-03-22 17:03:48,087 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2024-03-22 17:06:29,282 [main] INFO  com.stamp.shop.ShopApplication - Starting ShopApplication using Java 21.0.2 with PID 18427 (/home/bohdan/Documents/0_Java/shop/target/classes started by bohdan in /home/bohdan/Documents/0_Java/shop)
+2024-03-22 17:06:29,285 [main] INFO  com.stamp.shop.ShopApplication - No active profile set, falling back to 1 default profile: "default"
+2024-03-22 17:06:29,922 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-03-22 17:06:29,943 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 13 ms. Found 0 JPA repository interfaces.
+2024-03-22 17:06:30,560 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8081 (http)
+2024-03-22 17:06:30,570 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+2024-03-22 17:06:30,572 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-03-22 17:06:30,572 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.18]
+2024-03-22 17:06:30,619 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-03-22 17:06:30,620 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1272 ms
+2024-03-22 17:06:30,775 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-03-22 17:06:31,143 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@43935e9c
+2024-03-22 17:06:31,144 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-03-22 17:06:31,281 [main] INFO  liquibase.database - Set default schema name to public
+2024-03-22 17:06:31,506 [main] INFO  liquibase.changelog - Reading from public.databasechangelog
+2024-03-22 17:06:31,535 [main] INFO  liquibase.changelog - Reading from public.databasechangelog
+2024-03-22 17:06:31,558 [main] INFO  liquibase.util - UPDATE SUMMARY
+2024-03-22 17:06:31,559 [main] INFO  liquibase.util - Run:                          0
+2024-03-22 17:06:31,559 [main] INFO  liquibase.util - Previously run:               2
+2024-03-22 17:06:31,559 [main] INFO  liquibase.util - Filtered out:                 0
+2024-03-22 17:06:31,559 [main] INFO  liquibase.util - -------------------------------
+2024-03-22 17:06:31,559 [main] INFO  liquibase.util - Total change sets:            2
+2024-03-22 17:06:31,559 [main] INFO  liquibase.util - Update summary generated
+2024-03-22 17:06:31,581 [main] INFO  liquibase.lockservice - Successfully released change log lock
+2024-03-22 17:06:31,583 [main] INFO  liquibase.command - Command execution complete
+2024-03-22 17:06:31,681 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-03-22 17:06:31,737 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.1.Final
+2024-03-22 17:06:31,770 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-03-22 17:06:32,110 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-03-22 17:06:33,044 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-03-22 17:06:33,047 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-03-22 17:06:33,492 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
+2024-03-22 17:06:33,505 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8081 (http) with context path ''
+2024-03-22 17:06:33,515 [main] INFO  com.stamp.shop.ShopApplication - Started ShopApplication in 4.61 seconds (process running for 5.324)
+2024-03-22 17:06:35,285 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-03-22 17:06:35,288 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-03-22 17:06:35,297 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
