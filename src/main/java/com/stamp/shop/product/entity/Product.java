@@ -1,14 +1,17 @@
-package com.stamp.shop.product;
+package com.stamp.shop.product.entity;
 
-import io.hypersistence.utils.hibernate.type.json.JsonType;
+import com.stamp.shop.product.record.Image;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.hibernate.annotations.Type;
+import org.hibernate.annotations.JdbcTypeCode;
+
+import static org.hibernate.type.SqlTypes.JSON;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 @Entity
 @Table(name = "products")
@@ -25,16 +28,16 @@ public class Product {
     private String name;
     private int numberOfReviews;
     private BigDecimal price;
-    private double discount;
+    private Double discount;
     private int rating;
-    private Long quantityInStock;
+    private long quantityInStock;
     private String shortDescription;
 
-    @Type(JsonType.class)
-    private String[] images;
+    @JdbcTypeCode(JSON)
+    private List<Image> images;
     private String nameOfSubblock;
     private String longDescription;
 
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToOne(mappedBy = "product")
     private ProductDetails productDetails;
 }

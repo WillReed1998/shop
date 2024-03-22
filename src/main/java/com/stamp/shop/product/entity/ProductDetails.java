@@ -1,10 +1,13 @@
-package com.stamp.shop.product;
+package com.stamp.shop.product.entity;
 
+import com.stamp.shop.product.enumeration.ProductCategory;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import static jakarta.persistence.GenerationType.IDENTITY;
 
 @Entity
 @Table(name = "product_details")
@@ -15,16 +18,17 @@ import lombok.Setter;
 public class ProductDetails {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = IDENTITY)
     private Long id;
     private int yearOfIssue;
     private String countryOfIssue;
     private String series;
 
-    @ManyToOne
-    @JoinTable(
-            name = "categories",
-            joinColumns = @JoinColumn(name = "id")
-    )
-    private Category categoryId;
+    @Enumerated(EnumType.STRING)
+    private ProductCategory category;
+
+    @OneToOne
+    @MapsId
+    @JoinColumn(name = "id")
+    private Product product;
 }
