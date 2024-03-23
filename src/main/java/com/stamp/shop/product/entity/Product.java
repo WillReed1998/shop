@@ -13,6 +13,8 @@ import static org.hibernate.type.SqlTypes.JSON;
 import java.math.BigDecimal;
 import java.util.List;
 
+import static jakarta.persistence.GenerationType.IDENTITY;
+
 @Entity
 @Table(name = "products")
 @AllArgsConstructor
@@ -22,7 +24,7 @@ import java.util.List;
 public class Product {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = IDENTITY)
     private Long id;
     private String scu;
     private String name;
