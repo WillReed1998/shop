@@ -1,5 +1,5 @@
 databaseChangeLog:
   - include:
-        file: db/changelog/products/v1.0.0-create-db-products.sql
+      file: db/changelog/products.sql
   - include:
-      file: db/changelog/product_details/v1.0.0-create-db-product_details.sql
+      file: db/changelog/product_details.sql

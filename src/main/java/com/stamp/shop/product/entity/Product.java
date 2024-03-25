@@ -1,6 +1,5 @@
 package com.stamp.shop.product.entity;
 
-import com.stamp.shop.product.record.Image;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -40,6 +39,6 @@ public class Product {
     private String nameOfSubblock;
     private String longDescription;
 
-    @OneToOne(mappedBy = "product")
+    @OneToOne
     private ProductDetails productDetails;
 }

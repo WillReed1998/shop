@@ -1345,11 +1345,11 @@ More locations can be added with the 'searchPath' parameter.
 2024-03-22 16:36:34,333 [main] INFO  liquibase.lockservice - Successfully acquired change log lock
 2024-03-22 16:36:34,334 [main] INFO  liquibase.command - Using deploymentId: 1121794334
 2024-03-22 16:36:34,336 [main] INFO  liquibase.changelog - Reading from public.databasechangelog
-2024-03-22 16:36:34,392 [main] ERROR liquibase.changelog - ChangeSet db/changelog/product_details/v1.0.0-create-db-product_details.sql::1711121584674-1::bohdan_taran encountered an exception.
+2024-03-22 16:36:34,392 [main] ERROR liquibase.changelog - ChangeSet db/changelog/product_details/product_details.sql::1711121584674-1::bohdan_taran encountered an exception.
 2024-03-22 16:36:34,395 [main] INFO  liquibase.command - Update command encountered an exception.
 2024-03-22 16:36:34,402 [main] INFO  liquibase.lockservice - Successfully released change log lock
 2024-03-22 16:36:34,403 [main] INFO  liquibase.command - Command execution complete
-2024-03-22 16:36:34,405 [main] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: liquibase.exception.LiquibaseException: liquibase.exception.MigrationFailedException: Migration failed for changeset db/changelog/product_details/v1.0.0-create-db-product_details.sql::1711121584674-1::bohdan_taran:
+2024-03-22 16:36:34,405 [main] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: liquibase.exception.LiquibaseException: liquibase.exception.MigrationFailedException: Migration failed for changeset db/changelog/product_details/product_details.sql::1711121584674-1::bohdan_taran:
      Reason: liquibase.exception.DatabaseException: ERROR: relation "products" does not exist [Failed SQL: (0) CREATE TABLE IF NOT EXISTS product_details (
    id BIGSERIAL PRIMARY KEY REFERENCES products (id),
    year_of_issue INTEGER NOT NULL,
@@ -1366,7 +1366,7 @@ More locations can be added with the 'searchPath' parameter.
 
 Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
 2024-03-22 16:36:34,443 [main] ERROR o.s.boot.SpringApplication - Application run failed
-org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: liquibase.exception.LiquibaseException: liquibase.exception.MigrationFailedException: Migration failed for changeset db/changelog/product_details/v1.0.0-create-db-product_details.sql::1711121584674-1::bohdan_taran:
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: liquibase.exception.LiquibaseException: liquibase.exception.MigrationFailedException: Migration failed for changeset db/changelog/product_details/product_details.sql::1711121584674-1::bohdan_taran:
      Reason: liquibase.exception.DatabaseException: ERROR: relation "products" does not exist [Failed SQL: (0) CREATE TABLE IF NOT EXISTS product_details (
    id BIGSERIAL PRIMARY KEY REFERENCES products (id),
    year_of_issue INTEGER NOT NULL,
@@ -1395,7 +1395,7 @@ org.springframework.beans.factory.BeanCreationException: Error creating bean wit
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354)
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343)
 	at com.stamp.shop.ShopApplication.main(ShopApplication.java:11)
-Caused by: liquibase.exception.CommandExecutionException: liquibase.exception.LiquibaseException: liquibase.exception.MigrationFailedException: Migration failed for changeset db/changelog/product_details/v1.0.0-create-db-product_details.sql::1711121584674-1::bohdan_taran:
+Caused by: liquibase.exception.CommandExecutionException: liquibase.exception.LiquibaseException: liquibase.exception.MigrationFailedException: Migration failed for changeset db/changelog/product_details/product_details.sql::1711121584674-1::bohdan_taran:
      Reason: liquibase.exception.DatabaseException: ERROR: relation "products" does not exist [Failed SQL: (0) CREATE TABLE IF NOT EXISTS product_details (
    id BIGSERIAL PRIMARY KEY REFERENCES products (id),
    year_of_issue INTEGER NOT NULL,
@@ -1419,7 +1419,7 @@ Caused by: liquibase.exception.CommandExecutionException: liquibase.exception.Li
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1820)
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1769)
 	... 18 common frames omitted
-Caused by: liquibase.exception.LiquibaseException: liquibase.exception.MigrationFailedException: Migration failed for changeset db/changelog/product_details/v1.0.0-create-db-product_details.sql::1711121584674-1::bohdan_taran:
+Caused by: liquibase.exception.LiquibaseException: liquibase.exception.MigrationFailedException: Migration failed for changeset db/changelog/product_details/product_details.sql::1711121584674-1::bohdan_taran:
      Reason: liquibase.exception.DatabaseException: ERROR: relation "products" does not exist [Failed SQL: (0) CREATE TABLE IF NOT EXISTS product_details (
    id BIGSERIAL PRIMARY KEY REFERENCES products (id),
    year_of_issue INTEGER NOT NULL,
@@ -1445,7 +1445,7 @@ Caused by: liquibase.exception.LiquibaseException: liquibase.exception.Migration
 	at liquibase.command.core.UpdateCommandStep.run(UpdateCommandStep.java:106)
 	at liquibase.command.CommandScope.execute(CommandScope.java:214)
 	... 30 common frames omitted
-Caused by: liquibase.exception.MigrationFailedException: Migration failed for changeset db/changelog/product_details/v1.0.0-create-db-product_details.sql::1711121584674-1::bohdan_taran:
+Caused by: liquibase.exception.MigrationFailedException: Migration failed for changeset db/changelog/product_details/product_details.sql::1711121584674-1::bohdan_taran:
      Reason: liquibase.exception.DatabaseException: ERROR: relation "products" does not exist [Failed SQL: (0) CREATE TABLE IF NOT EXISTS product_details (
    id BIGSERIAL PRIMARY KEY REFERENCES products (id),
    year_of_issue INTEGER NOT NULL,
@@ -1521,11 +1521,11 @@ Caused by: org.postgresql.util.PSQLException: ERROR: relation "products" does no
 2024-03-22 16:42:14,867 [main] INFO  liquibase.lockservice - Successfully acquired change log lock
 2024-03-22 16:42:14,869 [main] INFO  liquibase.command - Using deploymentId: 1122134869
 2024-03-22 16:42:14,871 [main] INFO  liquibase.changelog - Reading from public.databasechangelog
-2024-03-22 16:42:14,932 [main] ERROR liquibase.changelog - ChangeSet db/changelog/product_details/v1.0.0-create-db-product_details.sql::1711121584674-1::bohdan_taran encountered an exception.
+2024-03-22 16:42:14,932 [main] ERROR liquibase.changelog - ChangeSet db/changelog/product_details/product_details.sql::1711121584674-1::bohdan_taran encountered an exception.
 2024-03-22 16:42:14,935 [main] INFO  liquibase.command - Update command encountered an exception.
 2024-03-22 16:42:14,941 [main] INFO  liquibase.lockservice - Successfully released change log lock
 2024-03-22 16:42:14,942 [main] INFO  liquibase.command - Command execution complete
-2024-03-22 16:42:14,944 [main] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: liquibase.exception.LiquibaseException: liquibase.exception.MigrationFailedException: Migration failed for changeset db/changelog/product_details/v1.0.0-create-db-product_details.sql::1711121584674-1::bohdan_taran:
+2024-03-22 16:42:14,944 [main] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: liquibase.exception.LiquibaseException: liquibase.exception.MigrationFailedException: Migration failed for changeset db/changelog/product_details/product_details.sql::1711121584674-1::bohdan_taran:
      Reason: liquibase.exception.DatabaseException: ERROR: relation "products" does not exist [Failed SQL: (0) CREATE TABLE IF NOT EXISTS product_details (
    id BIGSERIAL PRIMARY KEY REFERENCES products (id),
    year_of_issue INTEGER NOT NULL,
@@ -1542,7 +1542,7 @@ Caused by: org.postgresql.util.PSQLException: ERROR: relation "products" does no
 
 Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
 2024-03-22 16:42:15,014 [main] ERROR o.s.boot.SpringApplication - Application run failed
-org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: liquibase.exception.LiquibaseException: liquibase.exception.MigrationFailedException: Migration failed for changeset db/changelog/product_details/v1.0.0-create-db-product_details.sql::1711121584674-1::bohdan_taran:
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: liquibase.exception.LiquibaseException: liquibase.exception.MigrationFailedException: Migration failed for changeset db/changelog/product_details/product_details.sql::1711121584674-1::bohdan_taran:
      Reason: liquibase.exception.DatabaseException: ERROR: relation "products" does not exist [Failed SQL: (0) CREATE TABLE IF NOT EXISTS product_details (
    id BIGSERIAL PRIMARY KEY REFERENCES products (id),
    year_of_issue INTEGER NOT NULL,
@@ -1571,7 +1571,7 @@ org.springframework.beans.factory.BeanCreationException: Error creating bean wit
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354)
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343)
 	at com.stamp.shop.ShopApplication.main(ShopApplication.java:11)
-Caused by: liquibase.exception.CommandExecutionException: liquibase.exception.LiquibaseException: liquibase.exception.MigrationFailedException: Migration failed for changeset db/changelog/product_details/v1.0.0-create-db-product_details.sql::1711121584674-1::bohdan_taran:
+Caused by: liquibase.exception.CommandExecutionException: liquibase.exception.LiquibaseException: liquibase.exception.MigrationFailedException: Migration failed for changeset db/changelog/product_details/product_details.sql::1711121584674-1::bohdan_taran:
      Reason: liquibase.exception.DatabaseException: ERROR: relation "products" does not exist [Failed SQL: (0) CREATE TABLE IF NOT EXISTS product_details (
    id BIGSERIAL PRIMARY KEY REFERENCES products (id),
    year_of_issue INTEGER NOT NULL,
@@ -1595,7 +1595,7 @@ Caused by: liquibase.exception.CommandExecutionException: liquibase.exception.Li
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1820)
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1769)
 	... 18 common frames omitted
-Caused by: liquibase.exception.LiquibaseException: liquibase.exception.MigrationFailedException: Migration failed for changeset db/changelog/product_details/v1.0.0-create-db-product_details.sql::1711121584674-1::bohdan_taran:
+Caused by: liquibase.exception.LiquibaseException: liquibase.exception.MigrationFailedException: Migration failed for changeset db/changelog/product_details/product_details.sql::1711121584674-1::bohdan_taran:
      Reason: liquibase.exception.DatabaseException: ERROR: relation "products" does not exist [Failed SQL: (0) CREATE TABLE IF NOT EXISTS product_details (
    id BIGSERIAL PRIMARY KEY REFERENCES products (id),
    year_of_issue INTEGER NOT NULL,
@@ -1621,7 +1621,7 @@ Caused by: liquibase.exception.LiquibaseException: liquibase.exception.Migration
 	at liquibase.command.core.UpdateCommandStep.run(UpdateCommandStep.java:106)
 	at liquibase.command.CommandScope.execute(CommandScope.java:214)
 	... 30 common frames omitted
-Caused by: liquibase.exception.MigrationFailedException: Migration failed for changeset db/changelog/product_details/v1.0.0-create-db-product_details.sql::1711121584674-1::bohdan_taran:
+Caused by: liquibase.exception.MigrationFailedException: Migration failed for changeset db/changelog/product_details/product_details.sql::1711121584674-1::bohdan_taran:
      Reason: liquibase.exception.DatabaseException: ERROR: relation "products" does not exist [Failed SQL: (0) CREATE TABLE IF NOT EXISTS product_details (
    id BIGSERIAL PRIMARY KEY REFERENCES products (id),
    year_of_issue INTEGER NOT NULL,
@@ -1698,12 +1698,12 @@ Caused by: org.postgresql.util.PSQLException: ERROR: relation "products" does no
 2024-03-22 16:42:33,078 [main] INFO  liquibase.command - Using deploymentId: 1122153078
 2024-03-22 16:42:33,080 [main] INFO  liquibase.changelog - Reading from public.databasechangelog
 2024-03-22 16:42:33,141 [main] INFO  liquibase.changelog - Custom SQL executed
-2024-03-22 16:42:33,145 [main] INFO  liquibase.changelog - ChangeSet db/changelog/products/v1.0.0-create-db-products.sql::1711121614139-1::bohdan_taran ran successfully in 40ms
-2024-03-22 16:42:33,179 [main] ERROR liquibase.changelog - ChangeSet db/changelog/product_details/v1.0.0-create-db-product_details.sql::1711121584674-1::bohdan_taran encountered an exception.
+2024-03-22 16:42:33,145 [main] INFO  liquibase.changelog - ChangeSet db/changelog/products/products.sql::1711121614139-1::bohdan_taran ran successfully in 40ms
+2024-03-22 16:42:33,179 [main] ERROR liquibase.changelog - ChangeSet db/changelog/product_details/product_details.sql::1711121584674-1::bohdan_taran encountered an exception.
 2024-03-22 16:42:33,183 [main] INFO  liquibase.command - Update command encountered an exception.
 2024-03-22 16:42:33,190 [main] INFO  liquibase.lockservice - Successfully released change log lock
 2024-03-22 16:42:33,191 [main] INFO  liquibase.command - Command execution complete
-2024-03-22 16:42:33,193 [main] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: liquibase.exception.LiquibaseException: liquibase.exception.MigrationFailedException: Migration failed for changeset db/changelog/product_details/v1.0.0-create-db-product_details.sql::1711121584674-1::bohdan_taran:
+2024-03-22 16:42:33,193 [main] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: liquibase.exception.LiquibaseException: liquibase.exception.MigrationFailedException: Migration failed for changeset db/changelog/product_details/product_details.sql::1711121584674-1::bohdan_taran:
      Reason: liquibase.exception.DatabaseException: ERROR: relation "categories" does not exist [Failed SQL: (0) CREATE TABLE IF NOT EXISTS product_details (
    id BIGSERIAL PRIMARY KEY REFERENCES products (id),
    year_of_issue INTEGER NOT NULL,
@@ -1720,7 +1720,7 @@ Caused by: org.postgresql.util.PSQLException: ERROR: relation "products" does no
 
 Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
 2024-03-22 16:42:33,242 [main] ERROR o.s.boot.SpringApplication - Application run failed
-org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: liquibase.exception.LiquibaseException: liquibase.exception.MigrationFailedException: Migration failed for changeset db/changelog/product_details/v1.0.0-create-db-product_details.sql::1711121584674-1::bohdan_taran:
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: liquibase.exception.LiquibaseException: liquibase.exception.MigrationFailedException: Migration failed for changeset db/changelog/product_details/product_details.sql::1711121584674-1::bohdan_taran:
      Reason: liquibase.exception.DatabaseException: ERROR: relation "categories" does not exist [Failed SQL: (0) CREATE TABLE IF NOT EXISTS product_details (
    id BIGSERIAL PRIMARY KEY REFERENCES products (id),
    year_of_issue INTEGER NOT NULL,
@@ -1749,7 +1749,7 @@ org.springframework.beans.factory.BeanCreationException: Error creating bean wit
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354)
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343)
 	at com.stamp.shop.ShopApplication.main(ShopApplication.java:11)
-Caused by: liquibase.exception.CommandExecutionException: liquibase.exception.LiquibaseException: liquibase.exception.MigrationFailedException: Migration failed for changeset db/changelog/product_details/v1.0.0-create-db-product_details.sql::1711121584674-1::bohdan_taran:
+Caused by: liquibase.exception.CommandExecutionException: liquibase.exception.LiquibaseException: liquibase.exception.MigrationFailedException: Migration failed for changeset db/changelog/product_details/product_details.sql::1711121584674-1::bohdan_taran:
      Reason: liquibase.exception.DatabaseException: ERROR: relation "categories" does not exist [Failed SQL: (0) CREATE TABLE IF NOT EXISTS product_details (
    id BIGSERIAL PRIMARY KEY REFERENCES products (id),
    year_of_issue INTEGER NOT NULL,
@@ -1773,7 +1773,7 @@ Caused by: liquibase.exception.CommandExecutionException: liquibase.exception.Li
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1820)
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1769)
 	... 18 common frames omitted
-Caused by: liquibase.exception.LiquibaseException: liquibase.exception.MigrationFailedException: Migration failed for changeset db/changelog/product_details/v1.0.0-create-db-product_details.sql::1711121584674-1::bohdan_taran:
+Caused by: liquibase.exception.LiquibaseException: liquibase.exception.MigrationFailedException: Migration failed for changeset db/changelog/product_details/product_details.sql::1711121584674-1::bohdan_taran:
      Reason: liquibase.exception.DatabaseException: ERROR: relation "categories" does not exist [Failed SQL: (0) CREATE TABLE IF NOT EXISTS product_details (
    id BIGSERIAL PRIMARY KEY REFERENCES products (id),
    year_of_issue INTEGER NOT NULL,
@@ -1799,7 +1799,7 @@ Caused by: liquibase.exception.LiquibaseException: liquibase.exception.Migration
 	at liquibase.command.core.UpdateCommandStep.run(UpdateCommandStep.java:106)
 	at liquibase.command.CommandScope.execute(CommandScope.java:214)
 	... 30 common frames omitted
-Caused by: liquibase.exception.MigrationFailedException: Migration failed for changeset db/changelog/product_details/v1.0.0-create-db-product_details.sql::1711121584674-1::bohdan_taran:
+Caused by: liquibase.exception.MigrationFailedException: Migration failed for changeset db/changelog/product_details/product_details.sql::1711121584674-1::bohdan_taran:
      Reason: liquibase.exception.DatabaseException: ERROR: relation "categories" does not exist [Failed SQL: (0) CREATE TABLE IF NOT EXISTS product_details (
    id BIGSERIAL PRIMARY KEY REFERENCES products (id),
    year_of_issue INTEGER NOT NULL,
@@ -1876,7 +1876,7 @@ Caused by: org.postgresql.util.PSQLException: ERROR: relation "categories" does 
 2024-03-22 16:42:51,655 [main] INFO  liquibase.command - Using deploymentId: 1122171655
 2024-03-22 16:42:51,657 [main] INFO  liquibase.changelog - Reading from public.databasechangelog
 2024-03-22 16:42:51,705 [main] INFO  liquibase.changelog - Custom SQL executed
-2024-03-22 16:42:51,709 [main] INFO  liquibase.changelog - ChangeSet db/changelog/product_details/v1.0.0-create-db-product_details.sql::1711121584674-1::bohdan_taran ran successfully in 29ms
+2024-03-22 16:42:51,709 [main] INFO  liquibase.changelog - ChangeSet db/changelog/product_details/product_details.sql::1711121584674-1::bohdan_taran ran successfully in 29ms
 2024-03-22 16:42:51,722 [main] INFO  liquibase.util - UPDATE SUMMARY
 2024-03-22 16:42:51,722 [main] INFO  liquibase.util - Run:                          1
 2024-03-22 16:42:51,722 [main] INFO  liquibase.util - Previously run:               1
@@ -1975,3 +1975,48 @@ Caused by: org.postgresql.util.PSQLException: ERROR: relation "categories" does 
 2024-03-22 17:06:35,297 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
 =======
 >>>>>>> parent of ccd7eab (Delete logs/hibernate.log)
+2024-03-25 14:55:52,489 [main] INFO  com.stamp.shop.ShopApplication - Starting ShopApplication using Java 21.0.2 with PID 6230 (/home/bohdan/Documents/0_Java/shop/target/classes started by bohdan in /home/bohdan/Documents/0_Java/shop)
+2024-03-25 14:55:52,492 [main] INFO  com.stamp.shop.ShopApplication - No active profile set, falling back to 1 default profile: "default"
+2024-03-25 14:55:53,208 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-03-25 14:55:53,233 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 13 ms. Found 0 JPA repository interfaces.
+2024-03-25 14:55:53,881 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8081 (http)
+2024-03-25 14:55:53,891 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+2024-03-25 14:55:53,893 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-03-25 14:55:53,893 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.18]
+2024-03-25 14:55:53,959 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-03-25 14:55:53,960 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1422 ms
+2024-03-25 14:55:54,128 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-03-25 14:55:54,609 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@13213f26
+2024-03-25 14:55:54,611 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-03-25 14:55:54,768 [main] INFO  liquibase.database - Set default schema name to public
+2024-03-25 14:55:54,988 [main] INFO  liquibase.changelog - Creating database history table with name: public.databasechangelog
+2024-03-25 14:55:55,046 [main] INFO  liquibase.changelog - Reading from public.databasechangelog
+2024-03-25 14:55:55,119 [main] INFO  liquibase.lockservice - Successfully acquired change log lock
+2024-03-25 14:55:55,121 [main] INFO  liquibase.command - Using deploymentId: 1374955121
+2024-03-25 14:55:55,123 [main] INFO  liquibase.changelog - Reading from public.databasechangelog
+2024-03-25 14:55:55,191 [main] INFO  liquibase.changelog - Custom SQL executed
+2024-03-25 14:55:55,196 [main] INFO  liquibase.changelog - ChangeSet db/changelog/products.sql::1711121614139-1::bohdan_taran ran successfully in 38ms
+2024-03-25 14:55:55,233 [main] INFO  liquibase.changelog - Custom SQL executed
+2024-03-25 14:55:55,236 [main] INFO  liquibase.changelog - ChangeSet db/changelog/product_details.sql::1711121584674-1::bohdan_taran ran successfully in 28ms
+2024-03-25 14:55:55,250 [main] INFO  liquibase.util - UPDATE SUMMARY
+2024-03-25 14:55:55,250 [main] INFO  liquibase.util - Run:                          2
+2024-03-25 14:55:55,250 [main] INFO  liquibase.util - Previously run:               0
+2024-03-25 14:55:55,250 [main] INFO  liquibase.util - Filtered out:                 0
+2024-03-25 14:55:55,250 [main] INFO  liquibase.util - -------------------------------
+2024-03-25 14:55:55,251 [main] INFO  liquibase.util - Total change sets:            2
+2024-03-25 14:55:55,251 [main] INFO  liquibase.util - Update summary generated
+2024-03-25 14:55:55,253 [main] INFO  liquibase.command - Update command completed successfully.
+2024-03-25 14:55:55,261 [main] INFO  liquibase.lockservice - Successfully released change log lock
+2024-03-25 14:55:55,262 [main] INFO  liquibase.command - Command execution complete
+2024-03-25 14:55:55,391 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-03-25 14:55:55,481 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.1.Final
+2024-03-25 14:55:55,531 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-03-25 14:55:55,854 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-03-25 14:55:57,030 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-03-25 14:55:57,033 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-03-25 14:55:57,533 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
+2024-03-25 14:55:57,548 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8081 (http) with context path ''
+2024-03-25 14:55:57,558 [main] INFO  com.stamp.shop.ShopApplication - Started ShopApplication in 5.518 seconds (process running for 6.457)
+2024-03-25 14:56:01,739 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-03-25 14:56:01,741 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-03-25 14:56:01,749 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
