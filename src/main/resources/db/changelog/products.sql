@@ -13,5 +13,11 @@ CREATE TABLE IF NOT EXISTS products (
     short_description TEXT NOT NULL,
     images JSON NOT NULL,
     name_of_subblock TEXT NOT NULL,
-    long_description TEXT NOT NULL
+    long_description TEXT NOT NULL,
+    year_of_issue INTEGER NOT NULL,
+    country_of_issue TEXT NOT NULL,
+    series TEXT NOT NULL,
+    category TEXT NOT NULL
 );
+
+CREATE TYPE categories AS ENUM ('history');
