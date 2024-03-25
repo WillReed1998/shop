@@ -1,5 +1,6 @@
 package com.stamp.shop.product.entity;
 
+import com.stamp.shop.product.entity.enumeration.ProductCategory;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -28,15 +29,13 @@ public class Product {
     private String name;
     private int numberOfReviews;
     private BigDecimal price;
-    private Double discount;
-    private int rating;
-    private long quantityInStock;
-    private String overview;
+    private int yearOfIssue;
+    private String countryOfIssue;
+    private String series;
+    private ProductCategory category;
 
     @Embedded
     private ProductDescription productDescription;
-    @Embedded
-    private ProductDetails productDetails;
 
     @JdbcTypeCode(JSON)
     private List<Image> images;

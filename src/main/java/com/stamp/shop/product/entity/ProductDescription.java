@@ -12,6 +12,10 @@ import lombok.Setter;
 @Getter
 @Setter
 public class ProductDescription {
+    private Double discount;
+    private int rating;
+    private long quantityInStock;
+    private String overview;
     private String headline;
     private String description;
 }
