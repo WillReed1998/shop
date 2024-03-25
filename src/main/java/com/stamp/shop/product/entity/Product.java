@@ -38,7 +38,4 @@ public class Product {
     private List<Image> images;
     private String nameOfSubblock;
     private String longDescription;
-
-    @OneToOne
-    private ProductDetails productDetails;
 }
