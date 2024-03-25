@@ -1,5 +1,6 @@
 package com.stamp.shop.product.entity;
 
+import com.stamp.shop.product.entity.enumeration.ProductCategory;
 import jakarta.persistence.Embeddable;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -11,7 +12,9 @@ import lombok.Setter;
 @AllArgsConstructor
 @Getter
 @Setter
-public class ProductDescription {
-    private String headline;
-    private String description;
+public class ProductDetails {
+    private int yearOfIssue;
+    private String countryOfIssue;
+    private String series;
+    private ProductCategory category;
 }

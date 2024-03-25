@@ -1,6 +1,5 @@
 package com.stamp.shop.product.entity;
 
-import com.stamp.shop.product.entity.enumeration.ProductCategory;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -8,12 +7,11 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.JdbcTypeCode;
 
-import static org.hibernate.type.SqlTypes.JSON;
-
 import java.math.BigDecimal;
 import java.util.List;
 
 import static jakarta.persistence.GenerationType.IDENTITY;
+import static org.hibernate.type.SqlTypes.JSON;
 
 @Entity
 @Table(name = "products")
@@ -33,15 +31,13 @@ public class Product {
     private Double discount;
     private int rating;
     private long quantityInStock;
+    private String overview;
 
     @Embedded
-    private ProductDescription description;
+    private ProductDescription productDescription;
+    @Embedded
+    private ProductDetails productDetails;
 
     @JdbcTypeCode(JSON)
     private List<Image> images;
-    private String nameOfSubblock;
-    private int yearOfIssue;
-    private String countryOfIssue;
-    private String series;
-    private ProductCategory category;
 }

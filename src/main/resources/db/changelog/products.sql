@@ -1,5 +1,8 @@
 --liquibase formatted sql
 
+-- changeset bohdan_taran:1711121614131-1
+CREATE TYPE product_categories AS ENUM ('history');
+
 -- changeset bohdan_taran:1711121614139-1
 CREATE TABLE IF NOT EXISTS products (
     id BIGSERIAL PRIMARY KEY,
@@ -10,14 +13,12 @@ CREATE TABLE IF NOT EXISTS products (
     discount DECIMAL,
     rating INTEGER NOT NULL,
     quantity_in_stock BIGINT NOT NULL,
-    short_description TEXT NOT NULL,
+    overview TEXT NOT NULL,
     images JSON NOT NULL,
-    name_of_subblock TEXT NOT NULL,
-    long_description TEXT NOT NULL,
+    headline TEXT NOT NULL,
+    description TEXT NOT NULL,
     year_of_issue INTEGER NOT NULL,
     country_of_issue TEXT NOT NULL,
     series TEXT NOT NULL,
-    category TEXT NOT NULL
+    category product_categories NOT NULL
 );
-
-CREATE TYPE categories AS ENUM ('history');
